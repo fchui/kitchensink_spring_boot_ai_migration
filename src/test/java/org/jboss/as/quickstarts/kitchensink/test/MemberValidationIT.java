@@ -16,15 +16,15 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import java.net.http.HttpResponse;
 import java.util.Set;
 
 import jakarta.json.JsonObject;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Contract tests for validation errors returned by the members REST API.
@@ -119,11 +119,11 @@ public class MemberValidationIT {
     }
 
     private static void assertValidationErrors(HttpResponse<String> response, Set<String> expectedFields) {
-        assertEquals("status, body: " + response.body(), 400, response.statusCode());
+        assertEquals(400, response.statusCode(), () -> "status, body: " + response.body());
         JsonObject errors = MemberApi.readObject(response.body());
-        assertEquals("fields with errors", expectedFields, errors.keySet());
+        assertEquals(expectedFields, errors.keySet(), "fields with errors");
         for (String field : expectedFields) {
-            assertFalse("message for " + field, errors.getString(field).isBlank());
+            assertFalse(errors.getString(field).isBlank(), "message for " + field);
         }
     }
 }

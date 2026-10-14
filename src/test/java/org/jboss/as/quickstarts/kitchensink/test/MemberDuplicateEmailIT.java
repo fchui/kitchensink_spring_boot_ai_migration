@@ -16,8 +16,8 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import java.util.concurrent.CompletableFuture;
 
 import jakarta.json.JsonObject;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Contract tests for the unique-email rule of the members REST API.
@@ -42,16 +42,16 @@ public class MemberDuplicateEmailIT {
         String email = MemberApi.uniqueEmail("dup");
 
         HttpResponse<String> first = MemberApi.register("Jane Doe", email, "2125551234");
-        assertEquals("first registration", 200, first.statusCode());
-        assertEquals("successful registration has an empty body", "", first.body());
+        assertEquals(200, first.statusCode(), "first registration");
+        assertEquals("", first.body(), "successful registration has an empty body");
 
         HttpResponse<String> second = MemberApi.register("Janet Doe", email, "2125559876");
-        assertEquals("duplicate registration", 409, second.statusCode());
+        assertEquals(409, second.statusCode(), "duplicate registration");
         JsonObject body = MemberApi.readObject(second.body());
         assertEquals("Email taken", body.getString("email"));
-        assertEquals("only the error field is returned", 1, body.size());
+        assertEquals(1, body.size(), "only the error field is returned");
 
-        assertEquals("duplicate must not be stored", 1, MemberApi.countMembersWithEmail(email));
+        assertEquals(1, MemberApi.countMembersWithEmail(email), "duplicate must not be stored");
     }
 
     @Test
@@ -105,10 +105,10 @@ public class MemberDuplicateEmailIT {
         }
         String summary = "status codes: " + statusCounts;
 
-        assertEquals(summary, Integer.valueOf(1), statusCounts.getOrDefault(200, 0));
+        assertEquals(1, statusCounts.getOrDefault(200, 0), summary);
         for (int status : statusCounts.keySet()) {
-            assertTrue(summary, status == 200 || status == 400 || status == 409);
+            assertTrue(status == 200 || status == 400 || status == 409, summary);
         }
-        assertEquals(summary, 1, MemberApi.countMembersWithEmail(email));
+        assertEquals(1, MemberApi.countMembersWithEmail(email), summary);
     }
 }

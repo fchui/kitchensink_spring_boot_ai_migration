@@ -58,7 +58,7 @@ Characterization tests record current behavior, including known bugs. Change the
 
 | Step | Layer | Work | Gate |
 |---|---|---|---|
-| 6 | **Skeleton** | Spring Boot parent, web/data-mongodb/validation/Thymeleaf starters; Testcontainers MongoDB; `server.servlet.context-path=/kitchensink` to keep the URLs; JUnit 5 (Vintage engine until the JUnit 4 tests are converted) | App starts against MongoDB; a health check passes |
+| 6 | **Skeleton** | Spring Boot parent, web/data-mongodb/validation/Thymeleaf starters; Testcontainers MongoDB; `server.servlet.context-path=/kitchensink` to keep the URLs; JUnit 5 (all tests already use Jupiter) | App starts against MongoDB; a health check passes |
 | 7 | **Data model** | `Member` as a `@Document` with a unique index on email; validation rules unchanged; id type per the ID decision | Unit tests for the validation rules (`MemberValidationTest`) |
 | 8 | **Data access** | `MemberRepository` as a `MongoRepository`; unique index created at startup; seed loader for John Smith | `@DataMongoTest` with Testcontainers: find by id, find by email, sorted list, duplicate email rejected by the index |
 | 9 | **Business service** | `MemberRegistration` as a `@Service` publishing a `MemberRegisteredEvent` only after a successful save | Service tests: saves, publishes the event, no event when the save fails |
@@ -90,7 +90,7 @@ Commit names follow the same pattern, for example `feat(api): port member REST e
 17. **Final check:** the contract tests pass on `app/` in a container and on the target cluster, and a manual comparison with `legacy/` matches.
 18. **Remove `legacy/`** and the EAP dependencies, docs and chart.
     - Commit: `refactor!: remove legacy JBoss EAP module`
-19. **Optional:** rename the `org.jboss.as.quickstarts.kitchensink` packages, convert remaining JUnit 4 tests to JUnit 5, and rewrite the README for Spring Boot.
+19. **Optional:** rename the `org.jboss.as.quickstarts.kitchensink` packages and rewrite the README for Spring Boot.
 20. **Merge `migration/spring-boot` into `master`.**
 
 ## Rules for every step

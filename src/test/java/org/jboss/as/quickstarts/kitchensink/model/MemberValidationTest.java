@@ -16,7 +16,7 @@
  */
 package org.jboss.as.quickstarts.kitchensink.model;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -26,9 +26,9 @@ import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for the validation rules declared on {@link Member}.
@@ -40,7 +40,7 @@ public class MemberValidationTest {
     private static ValidatorFactory factory;
     private static Validator validator;
 
-    @BeforeClass
+    @BeforeAll
     public static void createValidator() {
         factory = Validation.byDefaultProvider()
                 .configure()
@@ -49,7 +49,7 @@ public class MemberValidationTest {
         validator = factory.getValidator();
     }
 
-    @AfterClass
+    @AfterAll
     public static void closeValidator() {
         factory.close();
     }

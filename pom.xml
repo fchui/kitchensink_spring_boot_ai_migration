@@ -50,6 +50,7 @@
         <version.bom.ee>8.1.0.GA-redhat-00013</version.bom.ee>
         <version.plugin.eap>2.0.0.Final-redhat-00009</version.plugin.eap>
         <version.plugin.wildfly>5.1.1.Final</version.plugin.wildfly>
+        <version.bom.junit>5.13.4</version.bom.junit>
     </properties>
 
     <dependencyManagement>
@@ -59,6 +60,14 @@
                 <groupId>org.jboss.bom</groupId>
                 <artifactId>jboss-eap-ee-with-tools</artifactId>
                 <version>${version.bom.ee}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- JUnit 5 (Jupiter) is not managed by the EAP BOM -->
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${version.bom.junit}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -78,10 +87,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Needed for running tests (you may also use TestNG) -->
+        <!-- Needed for running tests: JUnit 5 (Jupiter) -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
 

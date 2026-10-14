@@ -16,14 +16,14 @@
  */
 package org.jboss.as.quickstarts.kitchensink.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.net.http.HttpResponse;
 
 import jakarta.json.JsonObject;
 import jakarta.json.JsonValue;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Contract tests for looking up a single member by id. Ids are always taken
