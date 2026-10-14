@@ -13,7 +13,7 @@ This plan migrates the kitchensink member registration app from JBoss EAP 8.1 (J
 - **Still on JPA + H2:** persistence was kept on JPA to keep the change minimal and the contract tests valid. Moving to MongoDB (Phase 2, steps 7-8) is the next step, after the open decisions below.
 - **Removed:** the EAP Helm chart (`charts/helm.yaml`), to be replaced in Phase 3, step 15.
 - ✅ **UI and controller rework:** registration rules (no id on new members, unique email) live in `MemberRegistration` for both controllers; a duplicate email, including one lost in a concurrent race, raises `DuplicateEmailException` and maps to 409 (REST) or an "Email taken" field error (web). The REST controller uses `@Valid` and a `@RestControllerAdvice`. The page uses a Thymeleaf layout, responsive CSS without images, a localized error page, and has MockMvc and service tests (Phase 2, steps 9-11).
-- ✅ **JBoss cleanup:** packages renamed to `org.spring.as.quickstarts.kitchensink` and the Maven coordinates to `org.spring.quickstarts:kitchensink:1.0.0-SNAPSHOT`; JBoss/EAP branding, images and the EAP READMEs replaced with a Spring Boot `README.md`. The Apache 2.0 license headers (Red Hat copyright) are kept, as the license requires.
+- ✅ **JBoss cleanup:** packages renamed to `org.spring.quickstarts.kitchensink` and the Maven coordinates to `org.spring.quickstarts:kitchensink:1.0.0-SNAPSHOT`; JBoss/EAP branding, images and the EAP READMEs replaced with a Spring Boot `README.md`. The Apache 2.0 license headers keep the Red Hat copyright, as the license requires; the "JBoss, Home of Professional Open Source" tagline is dropped from them.
 
 ## How the current pieces map to Spring Boot + MongoDB
 
@@ -99,7 +99,7 @@ Commit names follow the same pattern, for example `feat(api): port member REST e
 17. **Final check:** the contract tests pass on `app/` in a container and on the target cluster, and a manual comparison with `legacy/` matches.
 18. **Remove `legacy/`** and the EAP dependencies, docs and chart.
     - Commit: `refactor!: remove legacy JBoss EAP module`
-19. ✅ **Done:** packages renamed to `org.spring.as.quickstarts.kitchensink`; README rewritten for Spring Boot.
+19. ✅ **Done:** packages renamed to `org.spring.quickstarts.kitchensink`; README rewritten for Spring Boot.
 20. **Merge `migration/spring-boot` into `master`.**
 
 ## Rules for every step
