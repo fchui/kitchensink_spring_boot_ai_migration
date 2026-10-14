@@ -1,0 +1,45 @@
+src/main/java/org/jboss/as/quickstarts/kitchensink/KitchensinkApplication.java
+  s_83b610cbbe9684::t_e79ab701f32499 1-28
+src/main/java/org/jboss/as/quickstarts/kitchensink/data/MemberRepository.java
+  s_83b610cbbe9684::t_34c5fba47474e7 20,23,25,27,29
+src/main/resources/templates/index.html
+  s_83b610cbbe9684::t_160d6aa8564f31 1-113
+pom.xml
+  s_83b610cbbe9684::t_18113b424ac44f 21,23-25,28,32-34,45-48,53-54,57-58,61-62,65-66,69-71,74,76-78,88,96-97,103,105,109-110,113,115,117-121,124,126,138-140
+src/main/java/org/jboss/as/quickstarts/kitchensink/rest/MemberResourceRESTService.java
+  s_83b610cbbe9684::t_5538924fe951fb 33-44,49-50,53,55,57,59,61-67,69,72-74,78,81-82,84,93,96,101,106,109,141,145,147-148,156,167
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/MemberValidationIT.java
+  s_83b610cbbe9684::t_2b59be9c747035 112,115-116
+src/main/java/org/jboss/as/quickstarts/kitchensink/service/MemberRegistration.java
+  s_83b610cbbe9684::t_b6c510aaae5e47 19,21-25,27,30-32,34,36-39,41-49
+MIGRATION.md
+  s_83b610cbbe9684::t_26e584933fda62 9-15
+src/main/java/org/jboss/as/quickstarts/kitchensink/controller/MemberController.java
+  s_83b610cbbe9684::t_6f8e6b475b867f 19-20,22-24,27-34,36-39,42-46,48-53,55-58,60-63,66-71,74-76,78-79,83,85
+src/main/resources/application.properties
+  s_83b610cbbe9684::t_0e71cbef9179aa 1-16
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources.properties
+  s_83b610cbbe9684::t_dcb2c27e0ea64b 54-57
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources_es.properties
+  s_83b610cbbe9684::t_531cff175be696 54-57
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources_fr.properties
+  s_83b610cbbe9684::t_0677a8d79a8d03 55-58
+src/main/resources/static/resources/css/screen.css
+  s_83b610cbbe9684::t_3744fe24eb6d29 36,53,150,158
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e86189b1bd3ca6560333b927b2473e91c18fff5a",
+  "prompts": {},
+  "sessions": {
+    "s_83b610cbbe9684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d2db33e-6172-422d-82d1-b8b1547def4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
