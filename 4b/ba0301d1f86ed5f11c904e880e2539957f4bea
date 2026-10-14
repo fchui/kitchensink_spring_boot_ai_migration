@@ -1,0 +1,21 @@
+src/test/java/org/spring/as/quickstarts/kitchensink/controller/MemberControllerTest.java
+  s_f4075dfe39a807::t_d0b776845a30bf 129-137
+src/main/java/org/spring/as/quickstarts/kitchensink/controller/LegacyUrlConfig.java
+  s_f4075dfe39a807::t_93c6bdfd863cb1 1-39
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "4bba0301d1f86ed5f11c904e880e2539957f4bea",
+  "prompts": {},
+  "sessions": {
+    "s_f4075dfe39a807": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8654641c-01da-4dae-8e24-0f10b206b796",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
