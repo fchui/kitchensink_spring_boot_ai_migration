@@ -26,9 +26,9 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.jboss.eap.quickstarts</groupId>
+    <groupId>org.spring.quickstarts</groupId>
     <artifactId>kitchensink</artifactId>
-    <version>8.1.0.GA</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>kitchensink</name>
     <description>Member registration web application on Spring Boot</description>

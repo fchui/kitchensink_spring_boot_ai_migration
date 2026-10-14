@@ -23,9 +23,6 @@
 </head>
 <body>
     <div id="container">
-        <div class="dualbrand">
-            <img th:src="@{/resources/gfx/rhjb_eap_logo.png}" width="300" height="175" />
-        </div>
         <div id="content">
             <h1 th:text="#{memberWelcomeHeader}">Welcome</h1>
             <div>
@@ -96,17 +93,14 @@
             </table>
         </div>
         <div id="aside">
-            <p>Learn more about Red Hat JBoss Enterprise Application Platform.</p>
+            <p th:text="#{learnAboutSpringBoot}">Learn more about Spring Boot.</p>
             <ul>
-                <li><a href="https://access.redhat.com/documentation/en/red-hat-jboss-enterprise-application-platform/">Documentation</a></li>
-                <li><a href="http://www.redhat.com/en/technologies/jboss-middleware/application-platform">Product Information</a></li>
+                <li><a href="https://docs.spring.io/spring-boot/" th:text="#{documentation}">Documentation</a></li>
+                <li><a href="https://spring.io/projects/spring-boot" th:text="#{projectPage}">Project Page</a></li>
             </ul>
         </div>
         <div id="footer">
-            <p>
-                This project was generated from a Maven archetype from
-                JBoss.<br />
-            </p>
+            <p th:text="#{projectFooter}">This project is based on the kitchensink sample application.</p>
         </div>
     </div>
 </body>
