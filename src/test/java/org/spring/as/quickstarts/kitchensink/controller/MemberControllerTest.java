@@ -126,6 +126,15 @@ class MemberControllerTest {
                 .andExpect(content().string(containsString("lang=\"fr\"")));
     }
 
+    @Test
+    void legacyJsfUrlsRedirectPermanentlyToThePage() throws Exception {
+        for (String legacyPage : LegacyUrlConfig.LEGACY_PAGES) {
+            mockMvc.perform(get(legacyPage))
+                    .andExpect(status().isMovedPermanently())
+                    .andExpect(redirectedUrl("/"));
+        }
+    }
+
     private static String uniqueEmail() {
         return "web-" + UUID.randomUUID().toString().substring(0, 8) + "@mailinator.com";
     }
