@@ -1,0 +1,21 @@
+src/test/java/org/jboss/as/quickstarts/kitchensink/model/MemberValidationTest.java
+  s_83b610cbbe9684::t_c03e2d5802660e 48,53-68
+  s_83b610cbbe9684::t_9a89bdd2215c53 21,25
+  s_83b610cbbe9684::t_ade3135ee3f96f 69-70
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5edf1714f8ed014b14cc1c815bb3192f97b1ae2d",
+  "prompts": {},
+  "sessions": {
+    "s_83b610cbbe9684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d2db33e-6172-422d-82d1-b8b1547def4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
