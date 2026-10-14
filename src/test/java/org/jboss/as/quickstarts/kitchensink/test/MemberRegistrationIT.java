@@ -40,13 +40,14 @@ public class MemberRegistrationIT {
         if (serverHost == null) {
             serverHost = DEFAULT_SERVER_HOST;
         }
+        String email = MemberApi.uniqueEmail("jane");
         Member newMember = new Member();
         newMember.setName("Jane Doe");
-        newMember.setEmail("jane@mailinator.com");
+        newMember.setEmail(email);
         newMember.setPhoneNumber("2125551234");
         JsonObject json = Json.createObjectBuilder()
                 .add("name", "Jane Doe")
-                .add("email", "jane@mailinator.com")
+                .add("email", email)
                 .add("phoneNumber", "2125551234").build();
         HttpRequest request = HttpRequest.newBuilder(new URI(serverHost + "/kitchensink/rest/members"))
                 .header("Content-Type", "application/json")
