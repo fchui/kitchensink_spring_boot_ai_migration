@@ -1,0 +1,21 @@
+src/test/java/org/spring/as/quickstarts/kitchensink/test/MemberValidationIT.java
+  s_f4075dfe39a807::t_60782a2212a025 111-124
+src/test/java/org/spring/as/quickstarts/kitchensink/test/MemberDuplicateEmailIT.java
+  s_f4075dfe39a807::t_60782a2212a025 83-85,105
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "21a2036045af2078f4b0f9b1165e6dc7d1372b2a",
+  "prompts": {},
+  "sessions": {
+    "s_f4075dfe39a807": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8654641c-01da-4dae-8e24-0f10b206b796",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
