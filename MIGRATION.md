@@ -6,6 +6,13 @@ This plan migrates the kitchensink member registration app from JBoss EAP 8.1 (J
 
 **Target:** the current Spring Boot release on Java 21, Spring Data MongoDB, packaged as an executable jar.
 
+## Status
+
+- ✅ **Spring Boot migration (in place):** the app runs on Spring Boot 4.1 and Java 21 as an executable jar. EJB, CDI, JAX-RS, JSF and the container-managed datasource are replaced with `@Service`/`@Transactional`, constructor injection, `ApplicationEventPublisher`, `@RestController`, Spring MVC + Thymeleaf, `MessageSource` and Spring Data JPA. All contract tests pass unchanged, except `malformedJsonReturns400`, which the migration fixed (was 500).
+- **Deviation from the plan:** done in place in one step, without the `legacy/` / `app/` module split (Phase 1, step 5), because the contract tests already gave a full safety net. The legacy app remains available on `master`.
+- **Still on JPA + H2:** persistence was kept on JPA to keep the change minimal and the contract tests valid. Moving to MongoDB (Phase 2, steps 7-8) is the next step, after the open decisions below.
+- **Removed:** the EAP Helm chart (`charts/helm.yaml`), to be replaced in Phase 3, step 15.
+
 ## How the current pieces map to Spring Boot + MongoDB
 
 | Today (JBoss EAP) | Becomes (Spring Boot + MongoDB) |

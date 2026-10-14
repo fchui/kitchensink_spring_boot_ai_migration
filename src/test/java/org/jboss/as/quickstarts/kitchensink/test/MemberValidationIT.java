@@ -109,13 +109,11 @@ public class MemberValidationIT {
     }
 
     /**
-     * Characterization: records a known bug. The JSON parsing error (JsonbException)
-     * is not mapped to a client error, so the server answers 500. The desired
-     * behavior is 400; change this assertion in the commit that fixes it.
+     * Fixed by the Spring Boot migration: the legacy JAX-RS/JSON-B stack answered 500.
      */
     @Test
-    public void malformedJsonCurrentlyReturns500() throws Exception {
-        assertEquals(500, MemberApi.post("{\"name\": \"Jane Doe\",").statusCode());
+    public void malformedJsonReturns400() throws Exception {
+        assertEquals(400, MemberApi.post("{\"name\": \"Jane Doe\",").statusCode());
     }
 
     private static void assertValidationErrors(HttpResponse<String> response, Set<String> expectedFields) {

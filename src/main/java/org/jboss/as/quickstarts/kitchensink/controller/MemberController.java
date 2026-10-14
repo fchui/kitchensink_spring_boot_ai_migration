@@ -16,58 +16,73 @@
  */
 package org.jboss.as.quickstarts.kitchensink.controller;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.enterprise.inject.Model;
-import jakarta.enterprise.inject.Produces;
-import jakarta.faces.application.FacesMessage;
-import jakarta.faces.context.FacesContext;
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
+import java.util.List;
+import java.util.Locale;
 
+import jakarta.validation.Valid;
+
+import org.jboss.as.quickstarts.kitchensink.data.MemberRepository;
 import org.jboss.as.quickstarts.kitchensink.model.Member;
 import org.jboss.as.quickstarts.kitchensink.service.MemberRegistration;
-import org.jboss.as.quickstarts.kitchensink.util.KitchensinkMessages;
+import org.springframework.context.MessageSource;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-// The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
-// EL name
-// Read more about the @Model stereotype in this FAQ:
-// http://www.cdi-spec.org/faq/#accordion6
-@Model
+/**
+ * Web controller for the registration page: shows the form and the member list, and registers new members.
+ */
+@Controller
 public class MemberController {
 
-    @Inject
-    private FacesContext facesContext;
+    private final MemberRegistration memberRegistration;
 
-    @Inject
-    private MemberRegistration memberRegistration;
+    private final MemberRepository memberRepository;
 
-    @Produces
-    @Named
-    private Member newMember;
+    private final MessageSource messageSource;
 
-    @PostConstruct
-    public void initNewMember() {
-        newMember = new Member();
+    public MemberController(MemberRegistration memberRegistration, MemberRepository memberRepository,
+            MessageSource messageSource) {
+        this.memberRegistration = memberRegistration;
+        this.memberRepository = memberRepository;
+        this.messageSource = messageSource;
     }
 
-    public void register() throws Exception {
+    @ModelAttribute("members")
+    public List<Member> members() {
+        return memberRepository.findAllByOrderByNameAsc();
+    }
+
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("newMember", new Member());
+        return "index";
+    }
+
+    @PostMapping("/")
+    public String register(@Valid @ModelAttribute("newMember") Member newMember, BindingResult bindingResult,
+            Model model, RedirectAttributes redirectAttributes, Locale locale) {
+        if (bindingResult.hasErrors()) {
+            return "index";
+        }
         try {
             memberRegistration.register(newMember);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, KitchensinkMessages.MESSAGES.registeredMessage(),
-                    KitchensinkMessages.MESSAGES.registerSuccessfulMessage());
-            facesContext.addMessage(null, m);
-            initNewMember();
+            redirectAttributes.addFlashAttribute("successMessage",
+                    messageSource.getMessage("registeredMessage", null, locale));
+            return "redirect:/";
         } catch (Exception e) {
-            String errorMessage = getRootErrorMessage(e);
-            FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_ERROR, errorMessage,
-                    KitchensinkMessages.MESSAGES.registerFailMessage());
-            facesContext.addMessage(null, m);
+            model.addAttribute("errorMessage", getRootErrorMessage(e, locale));
+            return "index";
         }
     }
 
-    private String getRootErrorMessage(Exception e) {
+    private String getRootErrorMessage(Exception e, Locale locale) {
         // Default to general error message that registration failed.
-        String errorMessage = KitchensinkMessages.MESSAGES.defaultErrorMessage();
+        String errorMessage = messageSource.getMessage("defaultErrorMessage", null, locale);
         if (e == null) {
             // This shouldn't happen, but return the default messages
             return errorMessage;
@@ -83,5 +98,4 @@ public class MemberController {
         // This is the root cause message
         return errorMessage;
     }
-
 }

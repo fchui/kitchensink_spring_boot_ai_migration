@@ -14,20 +14,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jboss.as.quickstarts.kitchensink.rest;
+package org.jboss.as.quickstarts.kitchensink;
 
-import jakarta.ws.rs.ApplicationPath;
-import jakarta.ws.rs.core.Application;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * A class extending {@link Application} and annotated with @ApplicationPath is the Jakarta EE "no XML" approach to activating
- * Jakarta REST.
- * <p>
- * <p>
- * Resources are served relative to the servlet path specified in the {@link ApplicationPath} annotation.
- * </p>
- */
-@ApplicationPath("/rest")
-public class JaxRsActivator extends Application {
-    /* class body intentionally left blank */
+@SpringBootApplication
+public class KitchensinkApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(KitchensinkApplication.class, args);
+    }
 }

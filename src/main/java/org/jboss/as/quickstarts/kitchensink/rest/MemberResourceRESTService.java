@@ -21,77 +21,67 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Logger;
 
-import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
-import jakarta.persistence.NoResultException;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.ValidationException;
 import jakarta.validation.Validator;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.WebApplicationException;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 
 import org.jboss.as.quickstarts.kitchensink.data.MemberRepository;
 import org.jboss.as.quickstarts.kitchensink.model.Member;
 import org.jboss.as.quickstarts.kitchensink.service.MemberRegistration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
- * Jakarta REST Example
- * <p/>
  * This class produces a RESTful service to read/write the contents of the members table.
  */
-@Path("/members")
-@RequestScoped
+@RestController
+@RequestMapping("/rest/members")
 public class MemberResourceRESTService {
 
-    @Inject
-    private Logger log;
+    private static final Logger log = LoggerFactory.getLogger(MemberResourceRESTService.class);
 
-    @Inject
-    private Validator validator;
+    private final Validator validator;
 
-    @Inject
-    private MemberRepository repository;
+    private final MemberRepository repository;
 
-    @Inject
-    MemberRegistration registration;
+    private final MemberRegistration registration;
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Member> listAllMembers() {
-        return repository.findAllOrderedByName();
+    public MemberResourceRESTService(Validator validator, MemberRepository repository, MemberRegistration registration) {
+        this.validator = validator;
+        this.repository = repository;
+        this.registration = registration;
     }
 
-    @GET
-    @Path("/{id:[0-9][0-9]*}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Member lookupMemberById(@PathParam("id") long id) {
-        Member member = repository.findById(id);
-        if (member == null) {
-            throw new WebApplicationException(Response.Status.NOT_FOUND);
-        }
-        return member;
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Member> listAllMembers() {
+        return repository.findAllByOrderByNameAsc();
+    }
+
+    @GetMapping(path = "/{id:[0-9][0-9]*}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Member lookupMemberById(@PathVariable("id") long id) {
+        return repository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     /**
-     * Creates a new member from the values provided. Performs validation, and will return a Jakarta REST response with either 200 ok,
+     * Creates a new member from the values provided. Performs validation, and will return a response with either 200 ok,
      * or with a map of fields, and related errors.
      */
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Response createMember(Member member) {
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, String>> createMember(@RequestBody Member member) {
 
-        Response.ResponseBuilder builder = null;
+        ResponseEntity<Map<String, String>> response;
 
         try {
             // Validates member using bean validation
@@ -100,23 +90,23 @@ public class MemberResourceRESTService {
             registration.register(member);
 
             // Create an "ok" response
-            builder = Response.ok();
+            response = ResponseEntity.ok().build();
         } catch (ConstraintViolationException ce) {
             // Handle bean validation issues
-            builder = createViolationResponse(ce.getConstraintViolations());
+            response = createViolationResponse(ce.getConstraintViolations());
         } catch (ValidationException e) {
             // Handle the unique constrain violation
             Map<String, String> responseObj = new HashMap<>();
             responseObj.put("email", "Email taken");
-            builder = Response.status(Response.Status.CONFLICT).entity(responseObj);
+            response = ResponseEntity.status(HttpStatus.CONFLICT).body(responseObj);
         } catch (Exception e) {
             // Handle generic exceptions
             Map<String, String> responseObj = new HashMap<>();
             responseObj.put("error", e.getMessage());
-            builder = Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
+            response = ResponseEntity.badRequest().body(responseObj);
         }
 
-        return builder.build();
+        return response;
     }
 
     /**
@@ -148,14 +138,14 @@ public class MemberResourceRESTService {
     }
 
     /**
-     * Creates a Jakarta REST "Bad Request" response including a map of all violation fields, and their message. This can then be used
+     * Creates a "Bad Request" response including a map of all violation fields, and their message. This can then be used
      * by clients to show violations.
      *
      * @param violations A set of violations that needs to be reported
-     * @return Jakarta REST response containing all violations
+     * @return response containing all violations
      */
-    private Response.ResponseBuilder createViolationResponse(Set<ConstraintViolation<?>> violations) {
-        log.fine("Validation completed. violations found: " + violations.size());
+    private ResponseEntity<Map<String, String>> createViolationResponse(Set<ConstraintViolation<?>> violations) {
+        log.debug("Validation completed. violations found: {}", violations.size());
 
         Map<String, String> responseObj = new HashMap<>();
 
@@ -163,7 +153,7 @@ public class MemberResourceRESTService {
             responseObj.put(violation.getPropertyPath().toString(), violation.getMessage());
         }
 
-        return Response.status(Response.Status.BAD_REQUEST).entity(responseObj);
+        return ResponseEntity.badRequest().body(responseObj);
     }
 
     /**
@@ -174,12 +164,6 @@ public class MemberResourceRESTService {
      * @return True if the email already exists, and false otherwise
      */
     public boolean emailAlreadyExists(String email) {
-        Member member = null;
-        try {
-            member = repository.findByEmail(email);
-        } catch (NoResultException e) {
-            // ignore
-        }
-        return member != null;
+        return repository.findByEmail(email).isPresent();
     }
 }
