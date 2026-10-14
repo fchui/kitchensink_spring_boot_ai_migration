@@ -1,0 +1,19 @@
+MIGRATION.md
+  s_83b610cbbe9684::t_d658ad04b100cf 1-93
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "3a2e0b5f2e1328c72caa652c607ab092cbbda9c5",
+  "prompts": {},
+  "sessions": {
+    "s_83b610cbbe9684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d2db33e-6172-422d-82d1-b8b1547def4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
