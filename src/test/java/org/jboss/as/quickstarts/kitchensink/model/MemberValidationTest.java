@@ -18,14 +18,15 @@ package org.jboss.as.quickstarts.kitchensink.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import jakarta.validation.MessageInterpolator;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 import jakarta.validation.ValidatorFactory;
 
-import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -44,9 +45,27 @@ public class MemberValidationTest {
     public static void createValidator() {
         factory = Validation.byDefaultProvider()
                 .configure()
-                .messageInterpolator(new ParameterMessageInterpolator())
+                .messageInterpolator(new TemplateMessageInterpolator())
                 .buildValidatorFactory();
         validator = factory.getValidator();
+    }
+
+    /**
+     * Returns message templates unresolved. These tests only check which fields
+     * fail, so this keeps them on the standard Jakarta Validation API, without
+     * provider-specific classes or an expression language implementation.
+     */
+    private static final class TemplateMessageInterpolator implements MessageInterpolator {
+
+        @Override
+        public String interpolate(String messageTemplate, Context context) {
+            return messageTemplate;
+        }
+
+        @Override
+        public String interpolate(String messageTemplate, Context context, Locale locale) {
+            return messageTemplate;
+        }
     }
 
     @AfterAll
