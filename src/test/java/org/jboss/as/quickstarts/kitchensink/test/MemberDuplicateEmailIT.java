@@ -43,6 +43,7 @@ public class MemberDuplicateEmailIT {
 
         HttpResponse<String> first = MemberApi.register("Jane Doe", email, "2125551234");
         assertEquals("first registration", 200, first.statusCode());
+        assertEquals("successful registration has an empty body", "", first.body());
 
         HttpResponse<String> second = MemberApi.register("Janet Doe", email, "2125559876");
         assertEquals("duplicate registration", 409, second.statusCode());

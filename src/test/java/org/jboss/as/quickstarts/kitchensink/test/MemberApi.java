@@ -29,6 +29,7 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
+import jakarta.json.JsonString;
 import jakarta.json.JsonValue;
 
 /**
@@ -102,6 +103,25 @@ final class MemberApi {
         try (JsonReader reader = Json.createReader(new StringReader(response.body()))) {
             return reader.readArray();
         }
+    }
+
+    static HttpResponse<String> getMember(String id) throws Exception {
+        HttpRequest request = HttpRequest.newBuilder(URI.create(membersUrl() + "/" + id)).GET().build();
+        return CLIENT.send(request, HttpResponse.BodyHandlers.ofString());
+    }
+
+    static JsonObject findMemberByEmail(String email) throws Exception {
+        return listMembers().stream()
+                .map(JsonValue::asJsonObject)
+                .filter(m -> m.getString("email").equals(email))
+                .findFirst()
+                .orElseThrow(() -> new AssertionError("No member listed with email " + email));
+    }
+
+    /** The member's id as it appears in URLs, whether the API returns it as a JSON number or string. */
+    static String idOf(JsonObject member) {
+        JsonValue id = member.get("id");
+        return id instanceof JsonString ? ((JsonString) id).getString() : id.toString();
     }
 
     static long countMembersWithEmail(String email) throws Exception {
