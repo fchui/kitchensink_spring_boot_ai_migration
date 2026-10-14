@@ -17,7 +17,6 @@
 package org.spring.as.quickstarts.kitchensink.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
@@ -81,12 +80,9 @@ public class MemberDuplicateEmailIT {
     }
 
     /**
-     * Same email registered by several requests at once: exactly one may succeed.
-     * The duplicate check runs outside the save's transaction, so requests that
-     * lose the race are rejected by the database constraint instead. Today those
-     * fall into the generic error handler (400); after the planned fix in
-     * MIGRATION.md every rejection should be 409, and this test should be
-     * tightened to assert that.
+     * Same email registered by several requests at once: exactly one may succeed,
+     * and every other request gets 409, also those that pass the duplicate check
+     * and are only stopped by the database's unique constraint.
      */
     @Test
     public void concurrentRegistrationsWithSameEmailStoreExactlyOneMember() throws Exception {
@@ -106,9 +102,7 @@ public class MemberDuplicateEmailIT {
         String summary = "status codes: " + statusCounts;
 
         assertEquals(1, statusCounts.getOrDefault(200, 0), summary);
-        for (int status : statusCounts.keySet()) {
-            assertTrue(status == 200 || status == 400 || status == 409, summary);
-        }
+        assertEquals(CONCURRENT_REQUESTS - 1, statusCounts.getOrDefault(409, 0), summary);
         assertEquals(1, MemberApi.countMembersWithEmail(email), summary);
     }
 }

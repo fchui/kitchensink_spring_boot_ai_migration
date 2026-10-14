@@ -16,86 +16,65 @@
  */
 package org.spring.as.quickstarts.kitchensink.controller;
 
-import java.util.List;
-import java.util.Locale;
-
 import jakarta.validation.Valid;
 
-import org.spring.as.quickstarts.kitchensink.data.MemberRepository;
 import org.spring.as.quickstarts.kitchensink.model.Member;
+import org.spring.as.quickstarts.kitchensink.service.DuplicateEmailException;
 import org.spring.as.quickstarts.kitchensink.service.MemberRegistration;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
- * Web controller for the registration page: shows the form and the member list, and registers new members.
+ * Registration page: shows the form and the member list, and registers new members (post/redirect/get).
  */
 @Controller
 public class MemberController {
 
+    static final String VIEW = "index";
+
     private final MemberRegistration memberRegistration;
 
-    private final MemberRepository memberRepository;
-
-    private final MessageSource messageSource;
-
-    public MemberController(MemberRegistration memberRegistration, MemberRepository memberRepository,
-            MessageSource messageSource) {
+    public MemberController(MemberRegistration memberRegistration) {
         this.memberRegistration = memberRegistration;
-        this.memberRepository = memberRepository;
-        this.messageSource = messageSource;
     }
 
-    @ModelAttribute("members")
-    public List<Member> members() {
-        return memberRepository.findAllByOrderByNameAsc();
+    /** The form never sets the id; ignoring it keeps posted ids from reaching the service. */
+    @InitBinder("newMember")
+    void ignoreId(WebDataBinder binder) {
+        binder.setDisallowedFields("id");
     }
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String showRegistrationPage(Model model) {
         model.addAttribute("newMember", new Member());
-        return "index";
+        return registrationPage(model);
     }
 
     @PostMapping("/")
     public String register(@Valid @ModelAttribute("newMember") Member newMember, BindingResult bindingResult,
-            Model model, RedirectAttributes redirectAttributes, Locale locale) {
+            Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "index";
+            return registrationPage(model);
         }
         try {
             memberRegistration.register(newMember);
-            redirectAttributes.addFlashAttribute("successMessage",
-                    messageSource.getMessage("registeredMessage", null, locale));
-            return "redirect:/";
-        } catch (Exception e) {
-            model.addAttribute("errorMessage", getRootErrorMessage(e, locale));
-            return "index";
+        } catch (DuplicateEmailException e) {
+            bindingResult.rejectValue("email", "email.taken", "Email taken");
+            return registrationPage(model);
         }
+        redirectAttributes.addFlashAttribute("registered", true);
+        return "redirect:/";
     }
 
-    private String getRootErrorMessage(Exception e, Locale locale) {
-        // Default to general error message that registration failed.
-        String errorMessage = messageSource.getMessage("defaultErrorMessage", null, locale);
-        if (e == null) {
-            // This shouldn't happen, but return the default messages
-            return errorMessage;
-        }
-
-        // Start with the exception and recurse to find the root cause
-        Throwable t = e;
-        while (t != null) {
-            // Get the message from the Throwable class instance
-            errorMessage = t.getLocalizedMessage();
-            t = t.getCause();
-        }
-        // This is the root cause message
-        return errorMessage;
+    private String registrationPage(Model model) {
+        model.addAttribute("members", memberRegistration.findAllOrderedByName());
+        return VIEW;
     }
 }

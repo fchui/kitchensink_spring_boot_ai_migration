@@ -16,14 +16,22 @@
  */
 package org.spring.as.quickstarts.kitchensink.service;
 
-import org.spring.as.quickstarts.kitchensink.data.MemberRepository;
-import org.spring.as.quickstarts.kitchensink.model.Member;
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spring.as.quickstarts.kitchensink.data.MemberRepository;
+import org.spring.as.quickstarts.kitchensink.model.Member;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * Registers and lists members. Both the web page and the REST API go through this service, so the
+ * registration rules (no id on new members, unique email) apply to both.
+ */
 @Service
 public class MemberRegistration {
 
@@ -38,14 +46,36 @@ public class MemberRegistration {
         this.eventPublisher = eventPublisher;
     }
 
+    @Transactional(readOnly = true)
+    public List<Member> findAllOrderedByName() {
+        return memberRepository.findAllByOrderByNameAsc();
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Member> findById(long id) {
+        return memberRepository.findById(id);
+    }
+
+    /**
+     * @throws IllegalArgumentException if the member already has an id
+     * @throws DuplicateEmailException if the email is taken, including when a concurrent registration wins
+     */
     @Transactional
     public void register(Member member) {
         // save() would merge a member with an id, overwriting an existing one; registration only creates
         if (member.getId() != null) {
             throw new IllegalArgumentException("A new member must not have an id");
         }
+        if (memberRepository.existsByEmail(member.getEmail())) {
+            throw new DuplicateEmailException(member.getEmail(), null);
+        }
         log.info("Registering {}", member.getName());
-        memberRepository.save(member);
+        try {
+            // flush now, so a concurrent registration with the same email fails here, on the unique constraint
+            memberRepository.saveAndFlush(member);
+        } catch (DataIntegrityViolationException e) {
+            throw new DuplicateEmailException(member.getEmail(), e);
+        }
         eventPublisher.publishEvent(member);
     }
 }

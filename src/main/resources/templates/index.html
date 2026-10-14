@@ -15,93 +15,74 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>kitchensink</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" th:href="@{/resources/css/screen.css}" />
-</head>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::main})}">
 <body>
-    <div id="container">
-        <div id="content">
-            <h1 th:text="#{memberWelcomeHeader}">Welcome</h1>
-            <div>
-                <p th:text="#{memberWelcomeMessage}"></p>
+<main class="content">
+    <h1 th:text="#{memberWelcomeHeader}">Welcome!</h1>
+    <p class="lead" th:text="#{memberWelcomeMessage}">You have successfully deployed a localized Spring Boot web application.</p>
+
+    <section class="card" aria-labelledby="registration-heading">
+        <h2 id="registration-heading" th:text="#{memberRegistrationHeader}">Member Registration</h2>
+        <p class="hint" th:text="#{memberFormDescription}">Enforces annotation-based constraints defined on the model class.</p>
+
+        <p class="alert alert-success" role="status" th:if="${registered}" th:text="#{registeredMessage}">Registered!</p>
+
+        <form id="reg" method="post" th:action="@{/}" th:object="${newMember}" novalidate>
+            <div class="field" th:classappend="${#fields.hasErrors('name')} ? 'has-error'">
+                <label for="name" th:text="#{memberNameLabel}">Name:</label>
+                <input type="text" id="name" th:field="*{name}" maxlength="25" autocomplete="name"
+                       th:attr="aria-invalid=${#fields.hasErrors('name')},aria-describedby=${#fields.hasErrors('name')} ? 'name-error'" />
+                <p id="name-error" class="field-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</p>
             </div>
 
-            <form id="reg" method="post" th:action="@{/}" th:object="${newMember}">
-                <h2 th:text="#{memberRegistrationHeader}">Member Registration</h2>
-                <p th:text="#{memberFormDescription}"></p>
-                <table>
-                    <tr>
-                        <td class="titleCell"><label for="name" th:text="#{memberNameLabel}">Name:</label></td>
-                        <td><input type="text" id="name" th:field="*{name}" /></td>
-                        <td><span class="invalid" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span></td>
-                    </tr>
-                    <tr>
-                        <td class="titleCell"><label for="email" th:text="#{memberEmailLabel}">Email:</label></td>
-                        <td><input type="text" id="email" th:field="*{email}" /></td>
-                        <td><span class="invalid" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
-                    </tr>
-                    <tr>
-                        <td class="titleCell"><label for="phoneNumber" th:text="#{memberPhoneLabel}">Phone #:</label></td>
-                        <td><input type="text" id="phoneNumber" th:field="*{phoneNumber}" /></td>
-                        <td><span class="invalid" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span></td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td><input type="submit" id="register" class="register" th:value="#{memberRegisterButtonLabel}" /></td>
-                        <td>
-                            <ul class="messages" th:if="${successMessage != null or errorMessage != null}">
-                                <li class="valid" th:if="${successMessage != null}" th:text="${successMessage}"></li>
-                                <li class="invalid" th:if="${errorMessage != null}" th:text="${errorMessage}"></li>
-                            </ul>
-                        </td>
-                    </tr>
-                </table>
-            </form>
+            <div class="field" th:classappend="${#fields.hasErrors('email')} ? 'has-error'">
+                <label for="email" th:text="#{memberEmailLabel}">Email:</label>
+                <input type="email" id="email" th:field="*{email}" autocomplete="email"
+                       th:attr="aria-invalid=${#fields.hasErrors('email')},aria-describedby=${#fields.hasErrors('email')} ? 'email-error'" />
+                <p id="email-error" class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</p>
+            </div>
 
-            <h2 th:text="#{membersHeader}">Members</h2>
-            <em th:if="${#lists.isEmpty(members)}">No registered members.</em>
-            <table class="simpletablestyle" th:unless="${#lists.isEmpty(members)}">
+            <div class="field" th:classappend="${#fields.hasErrors('phoneNumber')} ? 'has-error'">
+                <label for="phoneNumber" th:text="#{memberPhoneLabel}">Phone #:</label>
+                <input type="tel" id="phoneNumber" th:field="*{phoneNumber}" maxlength="12" inputmode="numeric" autocomplete="tel"
+                       th:attr="aria-invalid=${#fields.hasErrors('phoneNumber')},aria-describedby=${#fields.hasErrors('phoneNumber')} ? 'phoneNumber-error'" />
+                <p id="phoneNumber-error" class="field-error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Error</p>
+            </div>
+
+            <button type="submit" id="register" class="button" th:text="#{memberRegisterButtonLabel}">Register</button>
+        </form>
+    </section>
+
+    <section aria-labelledby="members-heading">
+        <h2 id="members-heading" th:text="#{membersHeader}">Members</h2>
+        <p class="empty" th:if="${#lists.isEmpty(members)}" th:text="#{noMembers}">No registered members.</p>
+        <div class="table-wrap" th:unless="${#lists.isEmpty(members)}">
+            <table class="members">
                 <thead>
                     <tr>
-                        <th th:text="#{memberIdHeader}">ID</th>
-                        <th th:text="#{memberNameHeader}">Name</th>
-                        <th th:text="#{memberEmailHeader}">Email</th>
-                        <th th:text="#{memberPhoneHeader}">Phone #</th>
-                        <th th:text="#{memberRestUrl}">REST URL</th>
+                        <th scope="col" th:text="#{memberIdHeader}">ID</th>
+                        <th scope="col" th:text="#{memberNameHeader}">Name</th>
+                        <th scope="col" th:text="#{memberEmailHeader}">Email</th>
+                        <th scope="col" th:text="#{memberPhoneHeader}">Phone #</th>
+                        <th scope="col" th:text="#{memberRestUrl}">REST URL</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <td colspan="5">
-                            <span th:text="#{memberRestUrlAllLabel}"></span><a th:href="@{/rest/members}">/rest/members</a>
-                        </td>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <tr th:each="member : ${members}">
-                        <td th:text="${member.id}"></td>
-                        <td th:text="${member.name}"></td>
-                        <td th:text="${member.email}"></td>
-                        <td th:text="${member.phoneNumber}"></td>
-                        <td><a th:href="@{/rest/members/{id}(id=${member.id})}" th:text="|/rest/members/${member.id}|"></a></td>
+                        <td th:text="${member.id}">0</td>
+                        <td th:text="${member.name}">John Smith</td>
+                        <td th:text="${member.email}">john.smith@mailinator.com</td>
+                        <td th:text="${member.phoneNumber}">2125551212</td>
+                        <td><a th:href="@{/rest/members/{id}(id=${member.id})}" th:text="|/rest/members/${member.id}|">/rest/members/0</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div id="aside">
-            <p th:text="#{learnAboutSpringBoot}">Learn more about Spring Boot.</p>
-            <ul>
-                <li><a href="https://docs.spring.io/spring-boot/" th:text="#{documentation}">Documentation</a></li>
-                <li><a href="https://spring.io/projects/spring-boot" th:text="#{projectPage}">Project Page</a></li>
-            </ul>
-        </div>
-        <div id="footer">
-            <p th:text="#{projectFooter}">This project is based on the kitchensink sample application.</p>
-        </div>
-    </div>
+        <p class="hint">
+            <span th:text="#{memberRestUrlAllLabel}">REST URL for all members:</span>
+            <a th:href="@{/rest/members}">/rest/members</a>
+        </p>
+    </section>
+</main>
 </body>
 </html>

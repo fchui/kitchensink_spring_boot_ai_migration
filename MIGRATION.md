@@ -12,6 +12,7 @@ This plan migrates the kitchensink member registration app from JBoss EAP 8.1 (J
 - **Deviation from the plan:** done in place in one step, without the `legacy/` / `app/` module split (Phase 1, step 5), because the contract tests already gave a full safety net. The legacy app remains available on `master`.
 - **Still on JPA + H2:** persistence was kept on JPA to keep the change minimal and the contract tests valid. Moving to MongoDB (Phase 2, steps 7-8) is the next step, after the open decisions below.
 - **Removed:** the EAP Helm chart (`charts/helm.yaml`), to be replaced in Phase 3, step 15.
+- ✅ **UI and controller rework:** registration rules (no id on new members, unique email) live in `MemberRegistration` for both controllers; a duplicate email, including one lost in a concurrent race, raises `DuplicateEmailException` and maps to 409 (REST) or an "Email taken" field error (web). The REST controller uses `@Valid` and a `@RestControllerAdvice`. The page uses a Thymeleaf layout, responsive CSS without images, a localized error page, and has MockMvc and service tests (Phase 2, steps 9-11).
 - ✅ **JBoss cleanup:** packages renamed to `org.spring.as.quickstarts.kitchensink` and the Maven coordinates to `org.spring.quickstarts:kitchensink:1.0.0-SNAPSHOT`; JBoss/EAP branding, images and the EAP READMEs replaced with a Spring Boot `README.md`. The Apache 2.0 license headers (Red Hat copyright) are kept, as the license requires.
 
 ## How the current pieces map to Spring Boot + MongoDB

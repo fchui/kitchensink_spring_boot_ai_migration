@@ -108,6 +108,20 @@ public class MemberValidationIT {
         assertEquals(400, MemberApi.post("").statusCode());
     }
 
+    /** A new member must not carry an id; otherwise it could overwrite an existing member. */
+    @Test
+    public void registrationWithIdIsRejectedAndDoesNotOverwrite() throws Exception {
+        String email = MemberApi.uniqueEmail("withid");
+
+        HttpResponse<String> response = MemberApi.post(
+                "{\"id\": 0, \"name\": \"Mallory\", \"email\": \"" + email + "\", \"phoneNumber\": \"2125550104\"}");
+
+        assertEquals(400, response.statusCode());
+        assertFalse(MemberApi.readObject(response.body()).getString("error").isBlank());
+        assertEquals(0, MemberApi.countMembersWithEmail(email));
+        assertEquals("John Smith", MemberApi.findMemberByEmail("john.smith@mailinator.com").getString("name"));
+    }
+
     /**
      * Fixed by the Spring Boot migration: the legacy JAX-RS/JSON-B stack answered 500.
      */

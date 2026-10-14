@@ -71,10 +71,15 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Tests: JUnit Jupiter, plus JSON-P for the black-box contract tests -->
+        <!-- Tests: JUnit Jupiter and MockMvc, plus JSON-P for the black-box contract tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
