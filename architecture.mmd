@@ -1,0 +1,90 @@
+---
+title: Kitchensink – High-Level Architecture
+---
+flowchart TB
+    %% ---------- Clients ----------
+    subgraph Clients["Clients"]
+        Browser(["👤 People<br/>(web browser)"])
+        ExtSys(["🔌 Other systems<br/>(CRM, mobile app, …)"])
+    end
+
+    %% ---------- Application ----------
+    subgraph EAP["JBoss EAP server – kitchensink.war"]
+        direction TB
+
+        subgraph Presentation["Presentation layer"]
+            UI["Web UI<br/>index.xhtml + default.xhtml (JSF)"]
+            REST["REST API<br/>MemberResourceRESTService<br/>GET/POST /rest/members"]
+        end
+
+        Controller["MemberController<br/>form handling + user messages"]
+
+        subgraph Business["Business layer"]
+            Service["MemberRegistration<br/>(stateless EJB, transactional)"]
+        end
+
+        Event{{"'Member registered' event (CDI)"}}
+
+        subgraph Data["Data access layer"]
+            Repo["MemberRepository<br/>find by id / email, list all"]
+            ListProd["MemberListProducer<br/>keeps on-screen list fresh"]
+        end
+
+        Model["Member entity<br/>name · email · phone<br/>+ validation rules"]
+
+        subgraph CrossCutting["Cross-cutting"]
+            direction LR
+            CDI["CDI wiring<br/>Resources / beans.xml"]
+            I18N["Messages in EN / ES / FR"]
+        end
+    end
+
+    %% ---------- Persistence ----------
+    subgraph Storage["Persistence"]
+        JPA["JPA / Hibernate<br/>persistence.xml"]
+        DB[("H2 in-memory database<br/>KitchensinkQuickstartDS")]
+    end
+
+    %% ---------- Deployment ----------
+    subgraph Deploy["Build and deployment"]
+        direction LR
+        Maven["Maven build<br/>pom.xml"]
+        Helm["Helm chart<br/>OpenShift / Kubernetes"]
+    end
+
+    %% ---------- Flows ----------
+    Browser -->|HTTP| UI
+    ExtSys -->|JSON over HTTP| REST
+
+    UI --> Controller
+    Controller -->|register| Service
+    REST -->|validate + register| Service
+    REST -->|list / lookup / email check| Repo
+
+    Service -->|persist| JPA
+    Service -.->|fires| Event
+    Event -.->|observed by| ListProd
+    ListProd -->|reload list| Repo
+    ListProd -->|member list| UI
+
+    Repo -->|query| JPA
+    JPA --- Model
+    JPA --> DB
+
+    Maven -->|packages| EAP
+    Helm -->|deploys| EAP
+
+    %% ---------- Styling ----------
+    classDef client fill:#e3f2fd,stroke:#1565c0,color:#0d47a1
+    classDef web fill:#ede7f6,stroke:#5e35b1,color:#311b92
+    classDef biz fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    classDef data fill:#fff3e0,stroke:#ef6c00,color:#e65100
+    classDef store fill:#fce4ec,stroke:#ad1457,color:#880e4f
+    classDef misc fill:#f5f5f5,stroke:#616161,color:#212121
+
+    class Browser,ExtSys client
+    class UI,REST,Controller web
+    class Service,Event biz
+    class Repo,ListProd,Model data
+    class JPA,DB store
+    class CDI,I18N,Maven,Helm misc
