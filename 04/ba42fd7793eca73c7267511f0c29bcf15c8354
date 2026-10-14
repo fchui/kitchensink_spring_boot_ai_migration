@@ -1,0 +1,27 @@
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/MemberApi.java
+  s_83b610cbbe9684::t_79e2df0656a273 108-126
+  s_83b610cbbe9684::t_f61225fad0313d 32
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/MemberLookupIT.java
+  s_83b610cbbe9684::t_7408b8b0fa16c0 1-83
+MIGRATION.md
+  s_83b610cbbe9684::t_abba22bdac8856 1,3,7,9,11,13-15,20,22-24,28-41,51,53-54,61-65,71-75,77,81-84,93,101,105-107
+  s_83b610cbbe9684::t_106dfacea711dc 52
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/MemberDuplicateEmailIT.java
+  s_83b610cbbe9684::t_148d39b10d604b 46
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "04ba42fd7793eca73c7267511f0c29bcf15c8354",
+  "prompts": {},
+  "sessions": {
+    "s_83b610cbbe9684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d2db33e-6172-422d-82d1-b8b1547def4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
