@@ -1,0 +1,1054 @@
+README-source.adoc
+  h_3fdf2dc95f7e88 1-152
+README.adoc
+  h_3fdf2dc95f7e88 1-1203
+README.html
+  h_3fdf2dc95f7e88 1-1063
+architecture.mmd
+  h_3fdf2dc95f7e88 1-90
+charts/helm.yaml
+  h_3fdf2dc95f7e88 1-6
+pom.xml
+  h_3fdf2dc95f7e88 1-402
+src/main/java/org/jboss/as/quickstarts/kitchensink/controller/MemberController.java
+  h_3fdf2dc95f7e88 1-87
+src/main/java/org/jboss/as/quickstarts/kitchensink/data/MemberListProducer.java
+  h_3fdf2dc95f7e88 1-54
+src/main/java/org/jboss/as/quickstarts/kitchensink/data/MemberRepository.java
+  h_3fdf2dc95f7e88 1-60
+src/main/java/org/jboss/as/quickstarts/kitchensink/model/Member.java
+  h_3fdf2dc95f7e88 1-93
+src/main/java/org/jboss/as/quickstarts/kitchensink/rest/JaxRsActivator.java
+  h_3fdf2dc95f7e88 1-33
+src/main/java/org/jboss/as/quickstarts/kitchensink/rest/MemberResourceRESTService.java
+  h_3fdf2dc95f7e88 1-185
+src/main/java/org/jboss/as/quickstarts/kitchensink/service/MemberRegistration.java
+  h_3fdf2dc95f7e88 1-45
+src/main/java/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.java
+  h_3fdf2dc95f7e88 1-47
+src/main/java/org/jboss/as/quickstarts/kitchensink/util/Resources.java
+  h_3fdf2dc95f7e88 1-48
+src/main/resources/META-INF/persistence.xml
+  h_3fdf2dc95f7e88 1-35
+src/main/resources/ValidationMessages.properties
+  h_3fdf2dc95f7e88 1-18
+src/main/resources/ValidationMessages_es.properties
+  h_3fdf2dc95f7e88 1-19
+src/main/resources/ValidationMessages_fr.properties
+  h_3fdf2dc95f7e88 1-19
+src/main/resources/import.sql
+  h_3fdf2dc95f7e88 1-19
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources.properties
+  h_3fdf2dc95f7e88 1-53
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources_es.properties
+  h_3fdf2dc95f7e88 1-53
+src/main/resources/org/jboss/as/quickstarts/kitchensink/bundle/Resources_fr.properties
+  h_3fdf2dc95f7e88 1-54
+src/main/resources/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_es.properties
+  h_3fdf2dc95f7e88 1-21
+src/main/resources/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_fr.properties
+  h_3fdf2dc95f7e88 1-21
+src/main/webapp/WEB-INF/beans.xml
+  h_3fdf2dc95f7e88 1-22
+src/main/webapp/WEB-INF/faces-config.xml
+  h_3fdf2dc95f7e88 1-45
+src/main/webapp/WEB-INF/kitchensink-quickstart-ds.xml
+  h_3fdf2dc95f7e88 1-38
+src/main/webapp/WEB-INF/templates/default.xhtml
+  h_3fdf2dc95f7e88 1-52
+src/main/webapp/index.html
+  h_3fdf2dc95f7e88 1-23
+src/main/webapp/index.xhtml
+  h_3fdf2dc95f7e88 1-92
+src/main/webapp/resources/css/screen.css
+  h_3fdf2dc95f7e88 1-202
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/BasicRuntimeIT.java
+  h_3fdf2dc95f7e88 1-58
+src/test/java/org/jboss/as/quickstarts/kitchensink/test/MemberRegistrationIT.java
+  h_3fdf2dc95f7e88 1-59
+target/checkstyle-cachefile
+  h_3fdf2dc95f7e88 1-23
+target/checkstyle-checker.xml
+  h_3fdf2dc95f7e88 1-84
+target/checkstyle-result.xml
+  h_3fdf2dc95f7e88 1-3
+target/classes/META-INF/persistence.xml
+  h_3fdf2dc95f7e88 1-35
+target/classes/ValidationMessages.properties
+  h_3fdf2dc95f7e88 1-18
+target/classes/ValidationMessages_es.properties
+  h_3fdf2dc95f7e88 1-19
+target/classes/ValidationMessages_fr.properties
+  h_3fdf2dc95f7e88 1-19
+target/classes/import.sql
+  h_3fdf2dc95f7e88 1-19
+target/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources.properties
+  h_3fdf2dc95f7e88 1-53
+target/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources_es.properties
+  h_3fdf2dc95f7e88 1-53
+target/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources_fr.properties
+  h_3fdf2dc95f7e88 1-54
+target/classes/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_es.properties
+  h_3fdf2dc95f7e88 1-21
+target/classes/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_fr.properties
+  h_3fdf2dc95f7e88 1-21
+target/kitchensink/WEB-INF/beans.xml
+  h_3fdf2dc95f7e88 1-22
+target/kitchensink/WEB-INF/classes/META-INF/persistence.xml
+  h_3fdf2dc95f7e88 1-35
+target/kitchensink/WEB-INF/classes/ValidationMessages.properties
+  h_3fdf2dc95f7e88 1-18
+target/kitchensink/WEB-INF/classes/ValidationMessages_es.properties
+  h_3fdf2dc95f7e88 1-19
+target/kitchensink/WEB-INF/classes/ValidationMessages_fr.properties
+  h_3fdf2dc95f7e88 1-19
+target/kitchensink/WEB-INF/classes/import.sql
+  h_3fdf2dc95f7e88 1-19
+target/kitchensink/WEB-INF/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources.properties
+  h_3fdf2dc95f7e88 1-53
+target/kitchensink/WEB-INF/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources_es.properties
+  h_3fdf2dc95f7e88 1-53
+target/kitchensink/WEB-INF/classes/org/jboss/as/quickstarts/kitchensink/bundle/Resources_fr.properties
+  h_3fdf2dc95f7e88 1-54
+target/kitchensink/WEB-INF/classes/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_es.properties
+  h_3fdf2dc95f7e88 1-21
+target/kitchensink/WEB-INF/classes/org/jboss/as/quickstarts/kitchensink/util/KitchensinkMessages.i18n_fr.properties
+  h_3fdf2dc95f7e88 1-21
+target/kitchensink/WEB-INF/faces-config.xml
+  h_3fdf2dc95f7e88 1-45
+target/kitchensink/WEB-INF/kitchensink-quickstart-ds.xml
+  h_3fdf2dc95f7e88 1-38
+target/kitchensink/WEB-INF/templates/default.xhtml
+  h_3fdf2dc95f7e88 1-52
+target/kitchensink/index.html
+  h_3fdf2dc95f7e88 1-23
+target/kitchensink/index.xhtml
+  h_3fdf2dc95f7e88 1-92
+target/kitchensink/resources/css/screen.css
+  h_3fdf2dc95f7e88 1-202
+target/maven-archiver/pom.properties
+  h_3fdf2dc95f7e88 1-3
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+  h_3fdf2dc95f7e88 1-9
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+  h_3fdf2dc95f7e88 1-9
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+  h_3fdf2dc95f7e88 1-2
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+  h_3fdf2dc95f7e88 1-2
+target/server/.installation/README.txt
+  h_3fdf2dc95f7e88 1
+target/server/.installation/installer-channels.yaml
+  h_3fdf2dc95f7e88 1-15
+target/server/.installation/manifest.yaml
+  h_3fdf2dc95f7e88 1-1284
+target/server/.installation/manifest_version.yaml
+  h_3fdf2dc95f7e88 1-7
+target/server/.wildfly-maven-plugin-provisioning.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/JBossEULA.txt
+  h_3fdf2dc95f7e88 1-8
+target/server/LICENSE.txt
+  h_3fdf2dc95f7e88 1-201
+target/server/bin/.jbossclirc
+  h_3fdf2dc95f7e88 1-13
+target/server/bin/add-user.bat
+  h_3fdf2dc95f7e88 1-81
+target/server/bin/add-user.properties
+  h_3fdf2dc95f7e88 1-41
+target/server/bin/add-user.ps1
+  h_3fdf2dc95f7e88 1-26
+target/server/bin/add-user.sh
+  h_3fdf2dc95f7e88 1-79
+target/server/bin/common.bat
+  h_3fdf2dc95f7e88 1-85
+target/server/bin/common.ps1
+  h_3fdf2dc95f7e88 1-482
+target/server/bin/common.sh
+  h_3fdf2dc95f7e88 1-88
+target/server/bin/elytron-tool.bat
+  h_3fdf2dc95f7e88 1-77
+target/server/bin/elytron-tool.ps1
+  h_3fdf2dc95f7e88 1-41
+target/server/bin/elytron-tool.sh
+  h_3fdf2dc95f7e88 1-100
+target/server/bin/init.d/jboss-eap-rhel.sh
+  h_3fdf2dc95f7e88 1-222
+target/server/bin/init.d/jboss-eap.conf
+  h_3fdf2dc95f7e88 1-34
+target/server/bin/installation-manager.bat
+  h_3fdf2dc95f7e88 1-90
+target/server/bin/installation-manager.properties
+  h_3fdf2dc95f7e88 1
+target/server/bin/installation-manager.ps1
+  h_3fdf2dc95f7e88 1-115
+target/server/bin/installation-manager.sh
+  h_3fdf2dc95f7e88 1-82
+target/server/bin/jboss-cli-logging.properties
+  h_3fdf2dc95f7e88 1-32
+target/server/bin/jboss-cli.bat
+  h_3fdf2dc95f7e88 1-115
+target/server/bin/jboss-cli.ps1
+  h_3fdf2dc95f7e88 1-22
+target/server/bin/jboss-cli.sh
+  h_3fdf2dc95f7e88 1-92
+target/server/bin/jboss-cli.xml
+  h_3fdf2dc95f7e88 1-78
+target/server/bin/jdk.serialFilter
+  h_3fdf2dc95f7e88 1-53
+target/server/bin/product.conf
+  h_3fdf2dc95f7e88 1-2
+target/server/bin/service.bat
+  h_3fdf2dc95f7e88 1-638
+target/server/bin/standalone.bat
+  h_3fdf2dc95f7e88 1-368
+target/server/bin/standalone.conf
+  h_3fdf2dc95f7e88 1-102
+target/server/bin/standalone.conf.bat
+  h_3fdf2dc95f7e88 1-106
+target/server/bin/standalone.conf.ps1
+  h_3fdf2dc95f7e88 1-105
+target/server/bin/standalone.ps1
+  h_3fdf2dc95f7e88 1-61
+target/server/bin/standalone.sh
+  h_3fdf2dc95f7e88 1-414
+target/server/bin/systemd/README
+  h_3fdf2dc95f7e88 1-81
+target/server/bin/systemd/generate_systemd_unit.sh
+  h_3fdf2dc95f7e88 1-108
+target/server/bin/systemd/jboss-eap-domain.conf
+  h_3fdf2dc95f7e88 1-38
+target/server/bin/systemd/jboss-eap-domain.service
+  h_3fdf2dc95f7e88 1-24
+target/server/bin/systemd/jboss-eap-domain.service.template
+  h_3fdf2dc95f7e88 1-24
+target/server/bin/systemd/jboss-eap-standalone.conf
+  h_3fdf2dc95f7e88 1-35
+target/server/bin/systemd/jboss-eap-standalone.service
+  h_3fdf2dc95f7e88 1-23
+target/server/bin/systemd/jboss-eap-standalone.service.template
+  h_3fdf2dc95f7e88 1-23
+target/server/bin/systemd/launch.sh
+  h_3fdf2dc95f7e88 1-26
+target/server/docs/licenses/MIT_CONTRIBUTORS.txt
+  h_3fdf2dc95f7e88 1-137
+"target/server/docs/licenses/apache license 2.0.txt"
+  h_3fdf2dc95f7e88 1-202
+"target/server/docs/licenses/bsd 2-clause simplified license.html"
+  h_3fdf2dc95f7e88 1-645
+"target/server/docs/licenses/bsd 3-clause new or revised license.html"
+  h_3fdf2dc95f7e88 1-365
+"target/server/docs/licenses/common public license 1.0.txt"
+  h_3fdf2dc95f7e88 1-213
+"target/server/docs/licenses/creative commons attribution 2.5.html"
+  h_3fdf2dc95f7e88 1-121
+"target/server/docs/licenses/eclipse distribution license, version 1.0.txt"
+  h_3fdf2dc95f7e88 1-13
+"target/server/docs/licenses/eclipse public license 1.0.txt"
+  h_3fdf2dc95f7e88 1-87
+"target/server/docs/licenses/eclipse public license 2.0.txt"
+  h_3fdf2dc95f7e88 1-277
+"target/server/docs/licenses/fsf all permissive license.html"
+  h_3fdf2dc95f7e88 1-104
+"target/server/docs/licenses/gnu general public license v2.0 only, with classpath exception.txt"
+  h_3fdf2dc95f7e88 1-363
+"target/server/docs/licenses/gnu lesser general public license v2.1 only.txt"
+  h_3fdf2dc95f7e88 1-502
+"target/server/docs/licenses/gnu lesser general public license v2.1 or later.txt"
+  h_3fdf2dc95f7e88 1-176
+"target/server/docs/licenses/gnu lesser general public license v3.0 only.txt"
+  h_3fdf2dc95f7e88 1-165
+"target/server/docs/licenses/gnu lesser general public license v3.0 or later.txt"
+  h_3fdf2dc95f7e88 1-165
+"target/server/docs/licenses/gnu library general public license v2 only.txt"
+  h_3fdf2dc95f7e88 1-482
+"target/server/docs/licenses/indiana university extreme lab software license 1.1.1.html"
+  h_3fdf2dc95f7e88 1-1333
+target/server/docs/licenses/licenses.css
+  h_3fdf2dc95f7e88 1-22
+target/server/docs/licenses/licenses.html
+  h_3fdf2dc95f7e88 1-4731
+target/server/docs/licenses/licenses.xml
+  h_3fdf2dc95f7e88 1-8627
+target/server/docs/licenses/licenses.xsl
+  h_3fdf2dc95f7e88 1-102
+"target/server/docs/licenses/mit license.txt"
+  h_3fdf2dc95f7e88 1-14
+target/server/docs/licenses/mit-0.html
+  h_3fdf2dc95f7e88 1-228
+"target/server/docs/licenses/mozilla public license 2.0.html"
+  h_3fdf2dc95f7e88 1-346
+target/server/docs/licenses/wildfly-ee-feature-pack-licenses.html
+  h_3fdf2dc95f7e88 1-4731
+target/server/docs/licenses/wildfly-ee-feature-pack-licenses.xml
+  h_3fdf2dc95f7e88 1-7982
+target/server/modules/system/layers/base/com/fasterxml/classmate/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/com/fasterxml/jackson/core/jackson-annotations/main/module.xml
+  h_3fdf2dc95f7e88 1-13
+target/server/modules/system/layers/base/com/fasterxml/jackson/core/jackson-core/main/module.xml
+  h_3fdf2dc95f7e88 1-13
+target/server/modules/system/layers/base/com/fasterxml/jackson/core/jackson-databind/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/com/fasterxml/jackson/jakarta/jackson-jakarta-json-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/com/fasterxml/jackson/jaxrs/jackson-jaxrs-json-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/com/github/ben-manes/caffeine/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/com/github/fge/btf/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/com/github/fge/jackson-coreutils/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/com/github/fge/json-patch/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/com/github/fge/msg-simple/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/com/google/guava/failureaccess/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/com/google/guava/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/com/googlecode/javaewah/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/com/h2database/h2/main/module.xml
+  h_3fdf2dc95f7e88 1-35
+target/server/modules/system/layers/base/com/ibm/async/asyncutil/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/com/microsoft/azure/storage/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/com/nimbusds/nimbus-jose-jwt/main/module.xml
+  h_3fdf2dc95f7e88 1-17
+target/server/modules/system/layers/base/com/redhat/insights/main/module.xml
+  h_3fdf2dc95f7e88 1-51
+target/server/modules/system/layers/base/com/squareup/protoparser/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/com/sun/xml/bind/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/de/dentrassi/crypto/pem-keystore/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/internal/javax/json/api/ee8/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/io/github/resilience4j/core/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/io/github/resilience4j/retry/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/io/netty/netty-buffer/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/io/netty/netty-codec-dns/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/io/netty/netty-codec-http/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/io/netty/netty-codec-socks/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/io/netty/netty-codec/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/io/netty/netty-common/main/module.xml
+  h_3fdf2dc95f7e88 1-31
+target/server/modules/system/layers/base/io/netty/netty-handler-proxy/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/io/netty/netty-handler/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/io/netty/netty-resolver-dns/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/io/netty/netty-resolver/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/io/netty/netty-transport-native-epoll/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/io/netty/netty-transport-native-unix-common/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/io/netty/netty-transport/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/io/reactivex/rxjava3/rxjava/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/io/smallrye/jandex/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/io/undertow/core/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/io/undertow/jsp/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/io/undertow/servlet/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/io/undertow/websocket/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/jakarta/activation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-17
+target/server/modules/system/layers/base/jakarta/annotation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/jakarta/ejb/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/jakarta/el/api/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/jakarta/enterprise/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/jakarta/enterprise/concurrent/api/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/jakarta/faces/api/main/module.xml
+  h_3fdf2dc95f7e88 1-52
+target/server/modules/system/layers/base/jakarta/faces/impl/main/module.xml
+  h_3fdf2dc95f7e88 1-40
+target/server/modules/system/layers/base/jakarta/inject/api/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/jakarta/interceptor/api/main/module.xml
+  h_3fdf2dc95f7e88 1-12
+target/server/modules/system/layers/base/jakarta/jms/api/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/jakarta/json/api/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/jakarta/json/bind/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/jakarta/mail/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/jakarta/persistence/api/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/jakarta/resource/api/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/jakarta/security/auth/message/api/main/module.xml
+  h_3fdf2dc95f7e88 1-12
+target/server/modules/system/layers/base/jakarta/security/enterprise/api/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/jakarta/security/jacc/api/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/jakarta/servlet/api/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/jakarta/servlet/jsp/api/main/module.xml
+  h_3fdf2dc95f7e88 1-17
+target/server/modules/system/layers/base/jakarta/servlet/jstl/api/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/jakarta/transaction/api/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/jakarta/validation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/jakarta/websocket/api/main/module.xml
+  h_3fdf2dc95f7e88 1-13
+target/server/modules/system/layers/base/jakarta/ws/rs/api/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/jakarta/xml/bind/api/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/javaee/api/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/javax/activation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/annotation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/ejb/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/el/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/enterprise/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/enterprise/concurrent/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/faces/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/inject/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/interceptor/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/jms/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/json/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/json/bind/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/mail/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/orb/api/main/module.xml
+  h_3fdf2dc95f7e88 1-31
+target/server/modules/system/layers/base/javax/persistence/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/resource/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/rmi/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/javax/security/auth/message/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/security/enterprise/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/security/jacc/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/servlet/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/servlet/jsp/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/servlet/jstl/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/transaction/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/validation/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/websocket/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/ws/rs/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/javax/xml/bind/api/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/net/bytebuddy/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/net/jcip/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/aesh/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/antlr/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/apache/activemq/artemis/client/main/module.xml
+  h_3fdf2dc95f7e88 1-49
+target/server/modules/system/layers/base/org/apache/activemq/artemis/commons/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/apache/activemq/artemis/ra/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/apache/activemq/artemis/service-extensions/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/apache/commons/beanutils/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/apache/commons/cli/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/apache/commons/codec/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/apache/commons/collections/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/apache/commons/io/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/apache/commons/lang3/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/apache/commons/logging/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/org/apache/httpcomponents/core/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/apache/httpcomponents/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/apache/james/mime4j/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/apache/logging/log4j/api/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/apache/sshd/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/bouncycastle/bcmail/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/bouncycastle/bcpg/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/bouncycastle/bcpkix/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/bouncycastle/bcprov/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/bouncycastle/bcutil/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/eclipse/angus/activation/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/eclipse/angus/mail/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/eclipse/jdt/ecj/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/eclipse/jgit/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/org/eclipse/parsson/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/eclipse/yasson/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/fusesource/jansi/main/module.xml
+  h_3fdf2dc95f7e88 1-17
+target/server/modules/system/layers/base/org/glassfish/expressly/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/glassfish/jakarta/el/main/module.xml
+  h_3fdf2dc95f7e88 1-6
+target/server/modules/system/layers/base/org/glassfish/jakarta/enterprise/concurrent/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/glassfish/javax/el/main/module.xml
+  h_3fdf2dc95f7e88 1-6
+target/server/modules/system/layers/base/org/glassfish/javax/enterprise/concurrent/main/module.xml
+  h_3fdf2dc95f7e88 1-6
+target/server/modules/system/layers/base/org/glassfish/jaxb/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/glassfish/soteria/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/hibernate/commons-annotations/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/hibernate/envers/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/org/hibernate/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/hibernate/jipijapa-hibernate6/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/hibernate/main/module.xml
+  h_3fdf2dc95f7e88 1-55
+target/server/modules/system/layers/base/org/hibernate/search/engine/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/hibernate/search/jipijapa-hibernatesearch/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/hibernate/search/mapper/orm/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/hibernate/search/mapper/pojo/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/hibernate/search/orm/main/module.xml
+  h_3fdf2dc95f7e88 1-7
+target/server/modules/system/layers/base/org/hibernate/validator/cdi/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/hibernate/validator/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/infinispan/cachestore/remote/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/infinispan/client/hotrod/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/infinispan/commons/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/infinispan/core/main/module.xml
+  h_3fdf2dc95f7e88 1-39
+target/server/modules/system/layers/base/org/infinispan/hibernate-cache/main/module.xml
+  h_3fdf2dc95f7e88 1-32
+target/server/modules/system/layers/base/org/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/infinispan/objectfilter/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/infinispan/persistence/jdbc/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/org/infinispan/persistence/remote/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/infinispan/protostream/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/infinispan/protostream/types/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/infinispan/query/client/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/infinispan/query/dsl/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/as/cli/main/module.xml
+  h_3fdf2dc95f7e88 1-52
+target/server/modules/system/layers/base/org/jboss/as/clustering/common/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/jboss/as/clustering/ejb3/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/jboss/as/clustering/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-70
+target/server/modules/system/layers/base/org/jboss/as/connector/main/module.xml
+  h_3fdf2dc95f7e88 1-69
+target/server/modules/system/layers/base/org/jboss/as/controller-client/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/jboss/as/controller/main/dir/META-INF/services/org.jboss.as.controller.persistence.ConfigurationExtension
+  h_3fdf2dc95f7e88 1
+target/server/modules/system/layers/base/org/jboss/as/controller/main/module.xml
+  h_3fdf2dc95f7e88 1-41
+target/server/modules/system/layers/base/org/jboss/as/core-security/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/as/deployment-repository/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/jboss/as/deployment-scanner/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/jboss/as/domain-add-user/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir.index
+  h_3fdf2dc95f7e88 1-2
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir/eap.css
+  h_3fdf2dc95f7e88 1-152
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir/index.html
+  h_3fdf2dc95f7e88 1-52
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir/index_win.html
+  h_3fdf2dc95f7e88 1-52
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir/noConsoleForAdminModeError.html
+  h_3fdf2dc95f7e88 1-45
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/dir/noConsoleForSlaveDcError.html
+  h_3fdf2dc95f7e88 1-47
+target/server/modules/system/layers/base/org/jboss/as/domain-http-error-context/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/as/domain-http-interface/main/module.xml
+  h_3fdf2dc95f7e88 1-39
+target/server/modules/system/layers/base/org/jboss/as/domain-management/main/module.xml
+  h_3fdf2dc95f7e88 1-40
+target/server/modules/system/layers/base/org/jboss/as/ee/main/module.xml
+  h_3fdf2dc95f7e88 1-49
+target/server/modules/system/layers/base/org/jboss/as/ejb3/main/module.xml
+  h_3fdf2dc95f7e88 1-121
+target/server/modules/system/layers/base/org/jboss/as/ejb3/main/timers/timer-sql.properties
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/jboss/as/host-controller/main/module.xml
+  h_3fdf2dc95f7e88 1-61
+target/server/modules/system/layers/base/org/jboss/as/jaxrs/main/module.xml
+  h_3fdf2dc95f7e88 1-61
+target/server/modules/system/layers/base/org/jboss/as/jmx/main/module.xml
+  h_3fdf2dc95f7e88 1-35
+target/server/modules/system/layers/base/org/jboss/as/jpa/main/module.xml
+  h_3fdf2dc95f7e88 1-62
+target/server/modules/system/layers/base/org/jboss/as/jpa/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/jboss/as/jsf-injection/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/jboss/as/jsf/main/module.xml
+  h_3fdf2dc95f7e88 1-42
+target/server/modules/system/layers/base/org/jboss/as/logging/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/jboss/as/management-client-content/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/jboss/as/naming/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/jboss/as/network/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/as/patching/cli/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/as/patching/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/jboss/as/platform-mbean/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/jboss/as/process-controller/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/jboss/as/product/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/org/jboss/as/protocol/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/jboss/as/remoting/main/module.xml
+  h_3fdf2dc95f7e88 1-40
+target/server/modules/system/layers/base/org/jboss/as/server/main/module.xml
+  h_3fdf2dc95f7e88 1-78
+target/server/modules/system/layers/base/org/jboss/as/standalone/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/jboss/as/threads/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/jboss/as/transactions/main/module.xml
+  h_3fdf2dc95f7e88 1-58
+target/server/modules/system/layers/base/org/jboss/as/version/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/as/web-common/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/jboss/as/weld/beanvalidation/main/module.xml
+  h_3fdf2dc95f7e88 1-32
+target/server/modules/system/layers/base/org/jboss/as/weld/common/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/jboss/as/weld/ejb/main/module.xml
+  h_3fdf2dc95f7e88 1-40
+target/server/modules/system/layers/base/org/jboss/as/weld/jpa/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/jboss/as/weld/main/module.xml
+  h_3fdf2dc95f7e88 1-63
+target/server/modules/system/layers/base/org/jboss/as/weld/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/jboss/as/weld/transactions/main/module.xml
+  h_3fdf2dc95f7e88 1-29
+target/server/modules/system/layers/base/org/jboss/classfilewriter/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/org/jboss/common-beans/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/dmr/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/org/jboss/ejb-client/main/module.xml
+  h_3fdf2dc95f7e88 1-32
+target/server/modules/system/layers/base/org/jboss/ejb3/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/jboss/iiop-client/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/jboss/invocation/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/jboss/ironjacamar/api/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/jboss/ironjacamar/impl/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/jboss/ironjacamar/jdbcadapters/main/module.xml
+  h_3fdf2dc95f7e88 1-35
+target/server/modules/system/layers/base/org/jboss/jandex/main/module.xml
+  h_3fdf2dc95f7e88 1-6
+target/server/modules/system/layers/base/org/jboss/jboss-transaction-spi/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/jts/integration/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/org/jboss/jts/main/module.xml
+  h_3fdf2dc95f7e88 1-59
+target/server/modules/system/layers/base/org/jboss/logging/commons/logging/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/jboss/logging/jul-to-slf4j-stub/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/jboss/logging/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/jboss/logmanager/log4j2/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/logmanager/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/marshalling/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/marshalling/river/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/jboss/metadata/common/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/metadata/ear/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/metadata/ejb/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/metadata/web/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/msc/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/jboss/remote-naming/main/module.xml
+  h_3fdf2dc95f7e88 1-6
+target/server/modules/system/layers/base/org/jboss/remoting-jmx/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/remoting/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-atom-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-cdi/main/module.xml
+  h_3fdf2dc95f7e88 1-29
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-client-api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-client/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-core-spi/main/module.xml
+  h_3fdf2dc95f7e88 1-38
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-core/main/module.xml
+  h_3fdf2dc95f7e88 1-34
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-crypto/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-jackson2-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-29
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxb-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-jaxrs/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-jsapi/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-json-binding-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-json-p-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-multipart-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-spring/main/module.xml
+  h_3fdf2dc95f7e88 1-17
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-tracing-api/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/resteasy/resteasy-validator-provider/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/jboss/staxmapper/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/jboss/stdio/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/jboss/threads/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/jboss/vfs/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jboss/weld/api/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/jboss/weld/core/main/module.xml
+  h_3fdf2dc95f7e88 1-41
+target/server/modules/system/layers/base/org/jboss/weld/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/jboss/xnio/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/jboss/xnio/nio/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jgroups/azure/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/jgroups/kubernetes/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/org/jgroups/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/joda/time/main/module.xml
+  h_3fdf2dc95f7e88 1-15
+target/server/modules/system/layers/base/org/omg/api/main/module.xml
+  h_3fdf2dc95f7e88 1-89
+target/server/modules/system/layers/base/org/projectodd/vdx/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/reactivestreams/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/slf4j/impl/main/jbosgi-xservice.properties
+  h_3fdf2dc95f7e88 1-8
+target/server/modules/system/layers/base/org/slf4j/impl/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/slf4j/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/org/wildfly/bootable-jar/main/module.xml
+  h_3fdf2dc95f7e88 1-52
+target/server/modules/system/layers/base/org/wildfly/client/config/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/wildfly/clustering/cache/infinispan/common/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/wildfly/clustering/cache/infinispan/embedded/main/module.xml
+  h_3fdf2dc95f7e88 1-34
+target/server/modules/system/layers/base/org/wildfly/clustering/cache/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/wildfly/clustering/context/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/wildfly/clustering/ejb/cache/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/wildfly/clustering/ejb/client/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/wildfly/clustering/ejb/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-56
+target/server/modules/system/layers/base/org/wildfly/clustering/ejb/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-32
+target/server/modules/system/layers/base/org/wildfly/clustering/infinispan/client/api/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/wildfly/clustering/infinispan/client/service/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/wildfly/clustering/infinispan/embedded/service/main/module.xml
+  h_3fdf2dc95f7e88 1-29
+target/server/modules/system/layers/base/org/wildfly/clustering/jgroups/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/wildfly/clustering/jgroups/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/wildfly/clustering/marshalling/api/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/wildfly/clustering/marshalling/jboss/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/wildfly/clustering/marshalling/protostream/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/wildfly/clustering/marshalling/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/wildfly/clustering/server/api/main/module.xml
+  h_3fdf2dc95f7e88 1-12
+target/server/modules/system/layers/base/org/wildfly/clustering/server/infinispan/main/module.xml
+  h_3fdf2dc95f7e88 1-38
+target/server/modules/system/layers/base/org/wildfly/clustering/server/jgroups/main/module.xml
+  h_3fdf2dc95f7e88 1-31
+target/server/modules/system/layers/base/org/wildfly/clustering/server/local/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/wildfly/clustering/server/main/module.xml
+  h_3fdf2dc95f7e88 1-11
+target/server/modules/system/layers/base/org/wildfly/clustering/server/service/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/wildfly/clustering/server/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-24
+target/server/modules/system/layers/base/org/wildfly/clustering/service/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/wildfly/clustering/singleton/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/wildfly/clustering/singleton/compat/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/wildfly/clustering/singleton/main/module.xml
+  h_3fdf2dc95f7e88 1-14
+target/server/modules/system/layers/base/org/wildfly/clustering/singleton/server/main/module.xml
+  h_3fdf2dc95f7e88 1-44
+target/server/modules/system/layers/base/org/wildfly/clustering/web/container/main/module.xml
+  h_3fdf2dc95f7e88 1-25
+target/server/modules/system/layers/base/org/wildfly/common/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/wildfly/concurrency/main/module.xml
+  h_3fdf2dc95f7e88 1-38
+target/server/modules/system/layers/base/org/wildfly/discovery/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/wildfly/embedded/main/module.xml
+  h_3fdf2dc95f7e88 1-34
+target/server/modules/system/layers/base/org/wildfly/extension/bean-validation/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/wildfly/extension/clustering/ejb/main/module.xml
+  h_3fdf2dc95f7e88 1-40
+target/server/modules/system/layers/base/org/wildfly/extension/clustering/server/main/module.xml
+  h_3fdf2dc95f7e88 1-47
+target/server/modules/system/layers/base/org/wildfly/extension/clustering/singleton/main/module.xml
+  h_3fdf2dc95f7e88 1-39
+target/server/modules/system/layers/base/org/wildfly/extension/core-management-client/main/module.xml
+  h_3fdf2dc95f7e88 1-12
+target/server/modules/system/layers/base/org/wildfly/extension/core-management/main/module.xml
+  h_3fdf2dc95f7e88 1-34
+target/server/modules/system/layers/base/org/wildfly/extension/discovery/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/wildfly/extension/ee-security/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/wildfly/extension/elytron/jaas-realm/main/module.xml
+  h_3fdf2dc95f7e88 1-54
+target/server/modules/system/layers/base/org/wildfly/extension/elytron/main/module.xml
+  h_3fdf2dc95f7e88 1-45
+target/server/modules/system/layers/base/org/wildfly/extension/health/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/wildfly/extension/io/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/wildfly/extension/messaging-activemq/injection/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/wildfly/extension/messaging-activemq/main/module.xml
+  h_3fdf2dc95f7e88 1-95
+target/server/modules/system/layers/base/org/wildfly/extension/metrics/main/module.xml
+  h_3fdf2dc95f7e88 1-33
+target/server/modules/system/layers/base/org/wildfly/extension/request-controller/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/wildfly/extension/security/manager/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/wildfly/extension/undertow/main/module.xml
+  h_3fdf2dc95f7e88 1-82
+target/server/modules/system/layers/base/org/wildfly/http-client/common/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/wildfly/http-client/ejb/main/module.xml
+  h_3fdf2dc95f7e88 1-31
+target/server/modules/system/layers/base/org/wildfly/http-client/naming/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/wildfly/http-client/transaction/main/module.xml
+  h_3fdf2dc95f7e88 1-26
+target/server/modules/system/layers/base/org/wildfly/iiop-openjdk/main/module.xml
+  h_3fdf2dc95f7e88 1-37
+target/server/modules/system/layers/base/org/wildfly/installation-manager/api/main/module.xml
+  h_3fdf2dc95f7e88 1-18
+target/server/modules/system/layers/base/org/wildfly/installation-manager/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/wildfly/io/spi/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/wildfly/naming-client/main/module.xml
+  h_3fdf2dc95f7e88 1-23
+target/server/modules/system/layers/base/org/wildfly/naming/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/wildfly/openssl/main/module.xml
+  h_3fdf2dc95f7e88 1-20
+target/server/modules/system/layers/base/org/wildfly/security/elytron-base/main/module.xml
+  h_3fdf2dc95f7e88 1-115
+target/server/modules/system/layers/base/org/wildfly/security/elytron-private/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/wildfly/security/elytron-tool/main/module.xml
+  h_3fdf2dc95f7e88 1-30
+target/server/modules/system/layers/base/org/wildfly/security/elytron-web/undertow-server-servlet/main/module.xml
+  h_3fdf2dc95f7e88 1-28
+target/server/modules/system/layers/base/org/wildfly/security/elytron-web/undertow-server/main/module.xml
+  h_3fdf2dc95f7e88 1-22
+target/server/modules/system/layers/base/org/wildfly/security/elytron/main/module.xml
+  h_3fdf2dc95f7e88 1-48
+target/server/modules/system/layers/base/org/wildfly/security/jakarta/authentication/main/module.xml
+  h_3fdf2dc95f7e88 1-31
+target/server/modules/system/layers/base/org/wildfly/security/jakarta/authorization/main/module.xml
+  h_3fdf2dc95f7e88 1-27
+target/server/modules/system/layers/base/org/wildfly/security/jakarta/security/main/module.xml
+  h_3fdf2dc95f7e88 1-36
+target/server/modules/system/layers/base/org/wildfly/security/manager/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/wildfly/service/main/module.xml
+  h_3fdf2dc95f7e88 1-16
+target/server/modules/system/layers/base/org/wildfly/subsystem/main/module.xml
+  h_3fdf2dc95f7e88 1-21
+target/server/modules/system/layers/base/org/wildfly/transaction/client/main/module.xml
+  h_3fdf2dc95f7e88 1-47
+target/server/modules/system/layers/base/org/yaml/snakeyaml/main/module.xml
+  h_3fdf2dc95f7e88 1-19
+target/server/modules/system/layers/base/wildflyee/api/main/module.xml
+  h_3fdf2dc95f7e88 1-81
+target/server/standalone/configuration/application-roles.properties
+  h_3fdf2dc95f7e88 1-23
+target/server/standalone/configuration/application-users.properties
+  h_3fdf2dc95f7e88 1-25
+target/server/standalone/configuration/logging.properties
+  h_3fdf2dc95f7e88 1-47
+target/server/standalone/configuration/mgmt-groups.properties
+  h_3fdf2dc95f7e88 1-22
+target/server/standalone/configuration/mgmt-users.properties
+  h_3fdf2dc95f7e88 1-27
+target/server/standalone/configuration/standalone.xml
+  h_3fdf2dc95f7e88 1-455
+target/server/standalone/deployments/README.txt
+  h_3fdf2dc95f7e88 1-190
+target/server/version.txt
+  h_3fdf2dc95f7e88 1
+target/site/checkstyle.html
+  h_3fdf2dc95f7e88 1-87
+target/site/css/maven-base.css
+  h_3fdf2dc95f7e88 1-168
+target/site/css/maven-theme.css
+  h_3fdf2dc95f7e88 1-161
+target/site/css/print.css
+  h_3fdf2dc95f7e88 1-26
+target/site/css/site.css
+  h_3fdf2dc95f7e88 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f6f6acbd6a195ed6e34bb23d5627599d1a22ba4a",
+  "prompts": {},
+  "humans": {
+    "h_3fdf2dc95f7e88": {
+      "author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
