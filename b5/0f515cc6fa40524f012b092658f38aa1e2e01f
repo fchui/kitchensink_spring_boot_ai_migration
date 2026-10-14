@@ -1,0 +1,68 @@
+MIGRATION.md
+  s_83b610cbbe9684::t_db5f81c4df82b4 15
+src/main/resources/templates/index.html
+  s_f4075dfe39a807::t_6725bb3253677c 18,56-60,63-67,72-76,81-86
+  s_83b610cbbe9684::t_e398d04ed6d64e 20-35,38-54
+src/test/java/org/spring/as/quickstarts/kitchensink/controller/MemberControllerTest.java
+  s_83b610cbbe9684::t_c6e56906f2ea87 97-98
+  s_83b610cbbe9684::t_e87be2a088992d 1-96,99-132
+src/main/java/org/spring/as/quickstarts/kitchensink/controller/MemberController.java
+  s_83b610cbbe9684::t_062d8da9a9a4ee 22,27,29,35,40,42,44,48-51,55,57,62,64,68-70,72-73,76-78
+src/main/java/org/spring/as/quickstarts/kitchensink/rest/MemberRestExceptionHandler.java
+  s_83b610cbbe9684::t_5c3a762703f47f 1-62
+src/main/java/org/spring/as/quickstarts/kitchensink/service/MemberRegistration.java
+  s_83b610cbbe9684::t_c1fb4d9338bd74 19,21,24-25,27,31-34,49-51,59-62,69-71,73-78
+  s_83b610cbbe9684::t_5ec8fdbcf48034 52,54-58
+  s_83b610cbbe9684::t_6e3c94e97ede3b 20
+  s_83b610cbbe9684::t_db8fc9906d5974 53
+src/main/resources/templates/error.html
+  s_f4075dfe39a807::t_6725bb3253677c 8
+  s_83b610cbbe9684::t_e7a7e202f9176b 1-7,9-17
+src/main/java/org/spring/as/quickstarts/kitchensink/data/MemberRepository.java
+  s_83b610cbbe9684::t_b0d7fd9b13ae74 26
+src/main/java/org/spring/as/quickstarts/kitchensink/rest/MemberResourceRESTService.java
+  s_83b610cbbe9684::t_093c31f20b2824 21,37-38,46,52,57,61-62,64-67
+src/main/resources/templates/layout.html
+  s_83b610cbbe9684::t_96054b399c9150 3-7,12-16
+  s_83b610cbbe9684::t_5535654a1ef1ec 1-2,8-11,17,19-50
+  s_f4075dfe39a807::t_6725bb3253677c 18
+src/main/resources/static/css/app.css
+  s_83b610cbbe9684::t_8febd41f44f739 1-249
+src/test/java/org/spring/as/quickstarts/kitchensink/service/MemberRegistrationTest.java
+  s_83b610cbbe9684::t_b0d74ddd76f2b6 1-112
+pom.xml
+  s_83b610cbbe9684::t_45cfc661b0e84d 74,81-82
+  s_83b610cbbe9684::t_7d83b5606d76ae 83-85
+src/main/java/org/spring/as/quickstarts/kitchensink/service/DuplicateEmailException.java
+  s_83b610cbbe9684::t_f303c7f290c01f 1-29
+src/main/resources/org/spring/as/quickstarts/kitchensink/bundle/Resources.properties
+  s_83b610cbbe9684::t_69d0f8608be9b5 22,45,53-57
+src/main/resources/org/spring/as/quickstarts/kitchensink/bundle/Resources_es.properties
+  s_83b610cbbe9684::t_ba848d9f45f2df 22,45,53-57
+src/main/resources/org/spring/as/quickstarts/kitchensink/bundle/Resources_fr.properties
+  s_83b610cbbe9684::t_499610001af0ff 22,45,54-58
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b50f515cc6fa40524f012b092658f38aa1e2e01f",
+  "prompts": {},
+  "sessions": {
+    "s_83b610cbbe9684": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "1d2db33e-6172-422d-82d1-b8b1547def4c",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    },
+    "s_f4075dfe39a807": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8654641c-01da-4dae-8e24-0f10b206b796",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
