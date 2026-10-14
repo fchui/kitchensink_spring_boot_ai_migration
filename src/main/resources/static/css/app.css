@@ -211,6 +211,12 @@ input:focus {
   background: var(--success-bg);
 }
 
+/* member list: full width at the end of the page, below the content and sidebar */
+
+.members-section {
+  padding-top: 32px;
+}
+
 /* member table: scrolls sideways on narrow screens instead of widening the page */
 
 .table-wrap {

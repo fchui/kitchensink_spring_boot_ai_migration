@@ -15,7 +15,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::main})}">
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout(~{::main}, ~{::#members})}">
 <body>
 <main class="content">
     <h1 th:text="#{memberWelcomeHeader}">Welcome!</h1>
@@ -52,37 +52,37 @@
             <button type="submit" id="register" class="button" th:text="#{memberRegisterButtonLabel}">Register</button>
         </form>
     </section>
-
-    <section aria-labelledby="members-heading">
-        <h2 id="members-heading" th:text="#{membersHeader}">Members</h2>
-        <p class="empty" th:if="${#lists.isEmpty(members)}" th:text="#{noMembers}">No registered members.</p>
-        <div class="table-wrap" th:unless="${#lists.isEmpty(members)}">
-            <table class="members">
-                <thead>
-                    <tr>
-                        <th scope="col" th:text="#{memberIdHeader}">ID</th>
-                        <th scope="col" th:text="#{memberNameHeader}">Name</th>
-                        <th scope="col" th:text="#{memberEmailHeader}">Email</th>
-                        <th scope="col" th:text="#{memberPhoneHeader}">Phone #</th>
-                        <th scope="col" th:text="#{memberRestUrl}">REST URL</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr th:each="member : ${members}">
-                        <td th:text="${member.id}">0</td>
-                        <td th:text="${member.name}">John Smith</td>
-                        <td th:text="${member.email}">john.smith@mailinator.com</td>
-                        <td th:text="${member.phoneNumber}">2125551212</td>
-                        <td><a th:href="@{/rest/members/{id}(id=${member.id})}" th:text="|/rest/members/${member.id}|">/rest/members/0</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p class="hint">
-            <span th:text="#{memberRestUrlAllLabel}">REST URL for all members:</span>
-            <a th:href="@{/rest/members}">/rest/members</a>
-        </p>
-    </section>
 </main>
+
+<section id="members" class="wrap members-section" aria-labelledby="members-heading">
+    <h2 id="members-heading" th:text="#{membersHeader}">Members</h2>
+    <p class="empty" th:if="${#lists.isEmpty(members)}" th:text="#{noMembers}">No registered members.</p>
+    <div class="table-wrap" th:unless="${#lists.isEmpty(members)}">
+        <table class="members">
+            <thead>
+                <tr>
+                    <th scope="col" th:text="#{memberIdHeader}">ID</th>
+                    <th scope="col" th:text="#{memberNameHeader}">Name</th>
+                    <th scope="col" th:text="#{memberEmailHeader}">Email</th>
+                    <th scope="col" th:text="#{memberPhoneHeader}">Phone #</th>
+                    <th scope="col" th:text="#{memberRestUrl}">REST URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="member : ${members}">
+                    <td th:text="${member.id}">0</td>
+                    <td th:text="${member.name}">John Smith</td>
+                    <td th:text="${member.email}">john.smith@mailinator.com</td>
+                    <td th:text="${member.phoneNumber}">2125551212</td>
+                    <td><a th:href="@{/rest/members/{id}(id=${member.id})}" th:text="|/rest/members/${member.id}|">/rest/members/0</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="hint">
+        <span th:text="#{memberRestUrlAllLabel}">REST URL for all members:</span>
+        <a th:href="@{/rest/members}">/rest/members</a>
+    </p>
+</section>
 </body>
 </html>

@@ -15,7 +15,7 @@
     See the License for the specific language governing permissions and
     limitations under the License.
 -->
-<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)" th:lang="${#locale.language}">
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content, memberList)" th:lang="${#locale.language}">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,6 +40,8 @@
             </ul>
         </aside>
     </div>
+
+    <section th:replace="${memberList}">Member list</section>
 
     <footer class="site-footer">
         <div class="wrap">
