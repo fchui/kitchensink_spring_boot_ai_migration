@@ -43,6 +43,7 @@
     <properties>
         <java.version>21</java.version>
         <version.parsson>1.1.9</version.parsson>
+        <version.flapdoodle.spring>4.33.0</version.flapdoodle.spring>
         <!-- port the app is started on for the integration tests -->
         <it.server.port>8180</it.server.port>
     </properties>
@@ -54,7 +55,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,13 +65,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
 
-        <!-- Tests: JUnit Jupiter and MockMvc, plus JSON-P for the black-box contract tests -->
+        <!-- Tests: JUnit Jupiter, MockMvc, Spring Data MongoDB slice tests and embedded MongoDB (Flapdoodle starts a
+             real mongod, no Docker needed), plus JSON-P for the black-box contract tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -79,6 +76,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>de.flapdoodle.embed</groupId>
+            <artifactId>de.flapdoodle.embed.mongo.spring4x</artifactId>
+            <version>${version.flapdoodle.spring}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -104,7 +112,8 @@
     </build>
 
     <profiles>
-        <!-- mvn verify -Pintegration-testing: starts the app, runs the *IT contract tests against it, stops it -->
+        <!-- mvn verify -Pintegration-testing: starts the app with embedded MongoDB, runs the *IT contract tests
+             against it, stops it -->
         <profile>
             <id>integration-testing</id>
             <build>
@@ -119,6 +128,8 @@
                                     <goal>start</goal>
                                 </goals>
                                 <configuration>
+                                    <!-- puts embedded MongoDB (a test dependency) on the classpath -->
+                                    <useTestClasspath>true</useTestClasspath>
                                     <arguments>
                                         <argument>--server.port=${it.server.port}</argument>
                                     </arguments>

@@ -25,7 +25,6 @@ import org.spring.quickstarts.kitchensink.model.Member;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Registers and lists members. Both the web page and the REST API go through this service, so the
@@ -45,12 +44,10 @@ public class MemberRegistration {
         this.eventPublisher = eventPublisher;
     }
 
-    @Transactional(readOnly = true)
     public List<Member> findAllOrderedByName() {
         return memberRepository.findAllByOrderByNameAsc();
     }
 
-    @Transactional(readOnly = true)
     public Optional<Member> findById(long id) {
         return memberRepository.findById(id);
     }
@@ -59,9 +56,8 @@ public class MemberRegistration {
      * @throws IllegalArgumentException if the member already has an id
      * @throws DuplicateEmailException if the email is taken, including when a concurrent registration wins
      */
-    @Transactional
     public void register(Member member) {
-        // save() would merge a member with an id, overwriting an existing one; registration only creates
+        // save() would replace a member with the same id, overwriting it; registration only creates
         if (member.getId() != null) {
             throw new IllegalArgumentException("A new member must not have an id");
         }
@@ -70,8 +66,9 @@ public class MemberRegistration {
         }
         log.info("Registering {}", member.getName());
         try {
-            // flush now, so a concurrent registration with the same email fails here, on the unique constraint
-            memberRepository.saveAndFlush(member);
+            // a single-document insert needs no transaction; a concurrent registration with the same email
+            // passes the check above but fails here, on the unique index (DuplicateKeyException)
+            memberRepository.insert(member);
         } catch (DataIntegrityViolationException e) {
             throw new DuplicateEmailException(member.getEmail(), e);
         }

@@ -39,7 +39,7 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 
 /**
- * Tests the registration page through MockMvc, against the real service and in-memory database.
+ * Tests the registration page through MockMvc, against the real service and embedded MongoDB.
  */
 @SpringBootTest
 @AutoConfigureMockMvc

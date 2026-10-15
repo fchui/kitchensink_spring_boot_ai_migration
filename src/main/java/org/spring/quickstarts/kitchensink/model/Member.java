@@ -17,27 +17,27 @@ package org.spring.quickstarts.kitchensink.model;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
 import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
+/**
+ * A registered member, stored in the {@code members} collection. The numeric id is assigned on insert by
+ * {@link org.spring.quickstarts.kitchensink.data.MemberIdGenerator}.
+ */
 @SuppressWarnings("serial")
-@Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Document("members")
 public class Member implements Serializable {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     @NotNull
@@ -48,12 +48,13 @@ public class Member implements Serializable {
     @NotNull
     @NotEmpty
     @Email
+    @Indexed(unique = true)
     private String email;
 
     @NotNull
     @Size(min = 10, max = 12)
     @Digits(fraction = 0, integer = 12)
-    @Column(name = "phone_number")
+    @Field("phone_number")
     private String phoneNumber;
 
     public Long getId() {

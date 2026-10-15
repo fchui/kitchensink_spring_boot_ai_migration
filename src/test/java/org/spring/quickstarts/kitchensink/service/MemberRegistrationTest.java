@@ -31,7 +31,7 @@ import org.springframework.test.context.event.ApplicationEvents;
 import org.springframework.test.context.event.RecordApplicationEvents;
 
 /**
- * Tests the registration rules shared by the web page and the REST API, against the in-memory database.
+ * Tests the registration rules shared by the web page and the REST API, against embedded MongoDB.
  */
 @SpringBootTest
 @RecordApplicationEvents

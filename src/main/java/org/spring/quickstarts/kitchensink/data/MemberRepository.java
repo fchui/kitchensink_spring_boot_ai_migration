@@ -18,9 +18,9 @@ package org.spring.quickstarts.kitchensink.data;
 import java.util.List;
 
 import org.spring.quickstarts.kitchensink.model.Member;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface MemberRepository extends JpaRepository<Member, Long> {
+public interface MemberRepository extends MongoRepository<Member, Long> {
 
     boolean existsByEmail(String email);
 
