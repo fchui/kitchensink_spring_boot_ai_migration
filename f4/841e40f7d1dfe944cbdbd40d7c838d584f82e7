@@ -1,0 +1,28 @@
+MIGRATION.md
+  s_f4075dfe39a807::t_f18bc405bf2cc9 13,90
+  s_f4075dfe39a807::t_1755c5511d6c32 31,70,72
+  s_f4075dfe39a807::t_6b7dc6e3316843 114-116
+README.md
+  s_f4075dfe39a807::t_8fe95574ce0cc9 250
+  s_f4075dfe39a807::t_e2047d4879c7a4 3,30,64,68-71,73,108-115,127-136,141,223,225,228,253-255,257,273,278-282,294
+  s_f4075dfe39a807::t_f18bc405bf2cc9 34,41,43,67,90,224,226
+  s_f4075dfe39a807::t_0434b4225b85ee 72
+architecture.mmd
+  s_f4075dfe39a807::t_a56deebf1508dd 23,29,43-44,59-60,62,65-67,84
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f4841e40f7d1dfe944cbdbd40d7c838d584f82e7",
+  "prompts": {},
+  "sessions": {
+    "s_f4075dfe39a807": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "8654641c-01da-4dae-8e24-0f10b206b796",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Francis C <fchui@sfu.ca>"
+    }
+  }
+}
