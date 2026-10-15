@@ -20,13 +20,13 @@ flowchart TB
         Controller["MemberController (@Controller)<br/>form handling + messages"]
 
         subgraph Business["Business layer"]
-            Service["MemberRegistration<br/>(@Service, @Transactional)"]
+            Service["MemberRegistration<br/>(@Service)"]
         end
 
         Event{{"Member registered<br/>(ApplicationEventPublisher)"}}
 
         subgraph Data["Data access layer"]
-            Repo["MemberRepository<br/>(Spring Data JpaRepository)"]
+            Repo["MemberRepository<br/>(Spring Data MongoRepository)"]
         end
 
         Model["Member entity<br/>name · email · phone<br/>+ validation rules"]
@@ -40,8 +40,8 @@ flowchart TB
 
     %% ---------- Persistence ----------
     subgraph Storage["Persistence"]
-        JPA["JPA / Hibernate<br/>application.properties"]
-        DB[("H2 in-memory database<br/>seeded from import.sql")]
+        Mongo["Spring Data MongoDB<br/>MemberIdGenerator (numeric ids)<br/>MemberDataInitializer (seed)"]
+        DB[("MongoDB<br/>members (unique email index)<br/>counters")]
     end
 
     %% ---------- Build ----------
@@ -56,17 +56,15 @@ flowchart TB
     ExtSys -->|JSON over HTTP| REST
 
     UI --> Controller
-    Controller -->|register| Service
-    Controller -->|member list| Repo
-    REST -->|validate + register| Service
-    REST -->|list / lookup / email check| Repo
+    Controller -->|register + member list| Service
+    REST -->|validate, register, list, lookup| Service
 
-    Service -->|save| Repo
+    Service -->|insert / find| Repo
     Service -.->|publishes| Event
 
-    Repo -->|query| JPA
-    JPA --- Model
-    JPA --> DB
+    Repo -->|query| Mongo
+    Mongo --- Model
+    Mongo --> DB
 
     Maven -->|packages| Jar
     Jar -->|runs| App
@@ -83,5 +81,5 @@ flowchart TB
     class UI,REST,Controller web
     class Service,Event biz
     class Repo,Model data
-    class JPA,DB store
+    class Mongo,DB store
     class DI,I18N,Maven,Jar misc

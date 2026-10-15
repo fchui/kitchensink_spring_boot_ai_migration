@@ -10,7 +10,7 @@ This plan migrates the kitchensink member registration app from JBoss EAP 8.1 (J
 
 - ✅ **Spring Boot migration (in place):** the app runs on Spring Boot 4.1 and Java 21 as an executable jar. EJB, CDI, JAX-RS, JSF and the container-managed datasource are replaced with `@Service`/`@Transactional`, constructor injection, `ApplicationEventPublisher`, `@RestController`, Spring MVC + Thymeleaf, `MessageSource` and Spring Data JPA. All contract tests pass unchanged, except `malformedJsonReturns400`, which the migration fixed (was 500).
 - **Deviation from the plan:** done in place in one step, without the `legacy/` / `app/` module split (Phase 1, step 5), because the contract tests already gave a full safety net. The legacy app remains available on `master`.
-- **Still on JPA + H2:** persistence was kept on JPA to keep the change minimal and the contract tests valid. Moving to MongoDB (Phase 2, steps 7-8) is the next step, after the open decisions below.
+- ✅ **MongoDB (Phase 2, steps 6-8):** JPA and H2 are replaced with Spring Data MongoDB. `Member` is a `@Document` in the `members` collection with a unique index on `email` (`spring.data.mongodb.auto-index-creation=true`); `MemberRepository` is a `MongoRepository`; `MemberIdGenerator` keeps numeric ids with a `counters` collection; `MemberDataInitializer` replaces `import.sql`. Registration is a single-document `insert` without transactions, and a duplicate key still maps to 409. The connection comes from `spring.mongodb.uri` (`MONGODB_URI`). Tests use embedded MongoDB 8.0 (Flapdoodle, no Docker; chosen because Docker can't run on the development machine), including a new `@DataMongoTest`; `mvn spring-boot:test-run` and the contract-test profile start the app with embedded MongoDB. Contract tests unchanged.
 - **Removed:** the EAP Helm chart (`charts/helm.yaml`), to be replaced in Phase 3, step 15.
 - ✅ **UI and controller rework:** registration rules (no id on new members, unique email) live in `MemberRegistration` for both controllers; a duplicate email, including one lost in a concurrent race, raises `DuplicateEmailException` and maps to 409 (REST) or an "Email taken" field error (web). The REST controller uses `@Valid` and a `@RestControllerAdvice`. The page uses a Thymeleaf layout, responsive CSS without images, a localized error page, and has MockMvc and service tests (Phase 2, steps 9-11).
 - ✅ **JBoss cleanup:** packages renamed to `org.spring.quickstarts.kitchensink` and the Maven coordinates to `org.spring.quickstarts:kitchensink:1.0.0-SNAPSHOT`; JBoss/EAP branding, images and the EAP READMEs replaced with a Spring Boot `README.md`. The Apache 2.0 license headers keep the Red Hat copyright, as the license requires; the "JBoss, Home of Professional Open Source" tagline is dropped from them.
@@ -28,7 +28,7 @@ This plan migrates the kitchensink member registration app from JBoss EAP 8.1 (J
 | `KitchensinkMessages` (JBoss Logging bundles, EN/ES/FR) | Spring `MessageSource` with `messages*.properties` |
 | `ValidationMessages*.properties` | Kept as-is (Hibernate Validator is also Spring Boot's validator) |
 | `Resources` (CDI producers), `beans.xml`, `faces-config.xml` | Removed |
-| `persistence.xml` + `kitchensink-quickstart-ds.xml` (H2) | `spring.data.mongodb.uri` in `application.properties`; Testcontainers MongoDB for tests |
+| `persistence.xml` + `kitchensink-quickstart-ds.xml` (H2) | `spring.mongodb.uri` in `application.properties`; embedded MongoDB (Flapdoodle) for tests |
 | `import.sql` (seed member, id 0) | Startup seed loader or Mongock change set |
 | Database unique constraint on email | Unique index on `email`; `spring.data.mongodb.auto-index-creation=true` (off by default) or created by a migration |
 | `wildfly-quickstart-parent`, EAP BOM and plugins, `war` | `spring-boot-starter-parent`, `spring-boot-maven-plugin`, `jar` |
@@ -67,9 +67,9 @@ Characterization tests record current behavior, including known bugs. Change the
 
 | Step | Layer | Work | Gate |
 |---|---|---|---|
-| 6 | **Skeleton** | Spring Boot parent, web/data-mongodb/validation/Thymeleaf starters; Testcontainers MongoDB; `server.servlet.context-path=/kitchensink` to keep the URLs; JUnit 5 (all tests already use Jupiter) | App starts against MongoDB; a health check passes |
+| 6 | **Skeleton** | Spring Boot parent, web/data-mongodb/validation/Thymeleaf starters; embedded MongoDB for tests; `server.servlet.context-path=/kitchensink` to keep the URLs; JUnit 5 (all tests already use Jupiter) | App starts against MongoDB; a health check passes |
 | 7 | **Data model** | `Member` as a `@Document` with a unique index on email; validation rules unchanged; id type per the ID decision | Unit tests for the validation rules (`MemberValidationTest`) |
-| 8 | **Data access** | `MemberRepository` as a `MongoRepository`; unique index created at startup; seed loader for John Smith | `@DataMongoTest` with Testcontainers: find by id, find by email, sorted list, duplicate email rejected by the index |
+| 8 | **Data access** | `MemberRepository` as a `MongoRepository`; unique index created at startup; seed loader for John Smith | `@DataMongoTest` with embedded MongoDB: find by id, find by email, sorted list, duplicate email rejected by the index |
 | 9 | **Business service** | `MemberRegistration` as a `@Service` publishing a `MemberRegisteredEvent` only after a successful save | Service tests: saves, publishes the event, no event when the save fails |
 | 10 | **REST API** | `@RestController` with the same 200 / 400 / 409 / 404 behavior and error bodies | **All contract tests pass against `app/`**, unchanged except the planned malformed-JSON change |
 | 11 | **Web UI** | Thymeleaf version of `index.xhtml` + `default.xhtml` (form, member table, success and error messages); copy CSS and images | MockMvc + manual side-by-side check against the old UI |
@@ -87,7 +87,7 @@ Commit names follow the same pattern, for example `feat(api): port member REST e
 
 ## Phase 3: Production readiness
 
-13. **Configuration profiles:** `dev` (local or Testcontainers MongoDB) and `prod` (MongoDB connection string from environment variables). Manage the unique index and seed data with Mongock change sets instead of startup code. If registration needs transactions, run MongoDB as a replica set (required for MongoDB transactions, also in development).
+13. **Configuration profiles:** `dev` (local or embedded MongoDB) and `prod` (MongoDB connection string from environment variables). Manage the unique index and seed data with Mongock change sets instead of startup code. If registration needs transactions, run MongoDB as a replica set (required for MongoDB transactions, also in development).
     - Commit: `feat(db): add mongock migrations and production mongodb profile`
 14. **Operations:** health and metrics with Spring Boot Actuator (including the MongoDB health check), JSON logs, graceful shutdown. Replace `BasicRuntimeIT` with a health check test.
 15. **Deployment:** build a container image with `./mvnw spring-boot:build-image` and replace the EAP Helm chart with a plain Helm chart for Kubernetes/OpenShift. It should point at this repo, run 2+ copies, include health checks, and connect to a managed MongoDB (for example, a MongoDB operator or MongoDB Atlas).
@@ -111,9 +111,9 @@ Commit names follow the same pattern, for example `feat(api): port member REST e
 
 ## Open decisions (before Phase 2)
 
-- [ ] **ID strategy:** keep numeric ids (with a counter collection, so the API and `GET /rest/members/{id}` stay the same) or switch to MongoDB ObjectId strings (a breaking API change for clients that store or parse ids; update `memberIdIsANumber` and the id URL pattern)
-- [ ] **Transactions:** whether registration needs MongoDB transactions (requires a replica set) or a single-document save is enough
-- [ ] **Email case:** keep case-sensitive uniqueness (MongoDB's default) or make it case-insensitive with a collation
+- [x] **ID strategy:** decided: numeric ids with a counter collection. Was: keep numeric ids (with a counter collection, so the API and `GET /rest/members/{id}` stay the same) or switch to MongoDB ObjectId strings (a breaking API change for clients that store or parse ids; update `memberIdIsANumber` and the id URL pattern)
+- [x] **Transactions:** decided: a single-document insert is enough; no transactions, so no replica set is required. Was: whether registration needs MongoDB transactions (requires a replica set) or a single-document save is enough
+- [x] **Email case:** decided: kept case-sensitive (pinned by the contract tests). Was: keep case-sensitive uniqueness (MongoDB's default) or make it case-insensitive with a collation
 - [ ] **UI technology:** Thymeleaf (standard Spring approach) or JoinFaces (keeps the JSF pages with less rework)
 - [ ] **Languages:** keep or drop Spanish and French (plan assumes kept)
 - [ ] **Security scope:** what needs login
